@@ -31,9 +31,10 @@
     
     .search-card{background:rgba(255,253,247,.92);border:1px solid #e5dbc3;border-radius:28px;padding:28px;box-shadow:var(--shadow);position:relative}.search-card:before{content:"";position:absolute;inset:10px;border:1px solid rgba(196,154,72,.18);border-radius:21px;pointer-events:none}.card-head{position:relative;margin-bottom:19px}.card-head span{font-size:12px;color:var(--gold);font-weight:700}.card-head h2{margin:2px 0;font-size:24px}.input-wrap{position:relative;z-index:1;background:white;border:1px solid var(--line);border-radius:17px;padding:7px;display:flex;gap:7px;transition:.2s}.input-wrap:focus-within{border-color:var(--gold);box-shadow:0 0 0 4px rgba(196,154,72,.1)}input{border:0;outline:0;background:transparent;padding:12px 15px;width:100%;font-family:inherit;font-size:14px;color:var(--ink)}button{border:0;font-family:inherit;cursor:pointer}.submit{background:var(--ink);color:white;border-radius:13px;padding:10px 19px;white-space:nowrap;font-weight:700}.submit:hover{background:var(--ink2)}.examples{position:relative;z-index:1;margin-top:14px;display:flex;align-items:center;gap:7px;flex-wrap:wrap;font-size:11px;color:var(--muted)}.chip{border:1px solid var(--line);background:#fffaf0;color:var(--ink2);padding:5px 10px;border-radius:40px;font-size:11px;cursor:pointer}.chip:hover{border-color:var(--gold)}
     
-    .extra-sections {max-width: 1180px; margin: 0 auto 40px; padding: 0 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;}
-    .column-side {display: flex; flex-direction: column; gap: 30px;}
-    .info-box {background: rgba(255,253,247,.7); border: 1px solid #e5dbc3; border-radius: 24px; padding: 30px; box-shadow: var(--shadow);}
+    /* تنسيق شبكي متطابق تماماً للصورة المرفقة (2 عمود، وارتفاعات متناسقة) */
+    .extra-sections {max-width: 1180px; margin: 0 auto 60px; padding: 0 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;}
+    .column-side {display: flex; flex-direction: column; gap: 40px;}
+    .info-box {background: rgba(255,253,247,.95); border: 1px solid #e5dbc3; border-radius: 28px; padding: 32px; box-shadow: var(--shadow);}
     
     .verse{max-width:820px;margin:44px auto 88px;padding:0 28px;text-align:center}.verse p{font-family:"Noto Naskh Arabic";font-size:27px;margin:0;color:var(--ink)}.verse small{color:var(--gold)}
     
@@ -113,23 +114,43 @@
       </div>
     </section>
 
-    <!-- الأقسام الإضافية في عمودين (ما هو نيات + لماذا بدأنا) و (ماذا ستجد داخل المنصة) -->
+    <!-- الأقسام الإضافية مطابقة تماماً لتوزيع الصورة المرفقة (شبكة 2x2) -->
     <div class="extra-sections" id="about-section">
+      
+      <!-- العمود الأيمن (الصف العلوي: ما هو نيات | الصف السفلي: لماذا يستحق الدعم) -->
       <div class="column-side">
+        <!-- مربع ما هو نيات؟ -->
         <div class="info-box">
-          <h3 style="font-size: 20px; font-weight: 700; color: var(--ink); margin-top: 0;">ما هو نيات؟</h3>
-          <p style="color: var(--muted); font-size: 15px; line-height: 1.8; margin-bottom: 0;">هو مشروع يهدف إلى مساعدتك على استحضار النية الصالحة في تفاصيل حياتك اليومية من خلال محتوى موثق وتجربة استخدام بسيطة.</p>
+          <h3 style="font-size: 22px; font-weight: 700; color: var(--ink); margin-top: 0; margin-bottom: 12px; text-align: right;">ما هو نيات؟</h3>
+          <p style="color: var(--muted); font-size: 15px; line-height: 1.8; margin-bottom: 0; text-align: right;">هو مشروع يهدف إلى مساعدتك على استحضار النية الصالحة في تفاصيل حياتك اليومية من خلال محتوى موثق وتجربة استخدام بسيطة.</p>
         </div>
 
-        <div style="background: var(--ink); color: white; border-radius: 24px; padding: 30px; text-align: center; box-shadow: var(--shadow);">
-          <h3 style="font-size: 18px; color: #e1c98e; margin-top: 0;">لماذا بدأنا نيات؟</h3>
-          <p style="font-size: 17px; font-weight: 600; margin-bottom: 0;">"لأننا كثيرًا ما نهتم بالعمل... وننسى النية."</p>
+        <!-- مربع لماذا يستحق الدعم؟ -->
+        <div class="info-box" style="text-align: center;">
+          <h3 style="font-size: 22px; font-weight: 700; color: var(--ink); margin-top: 0; margin-bottom: 12px;">لماذا يستحق الدعم؟</h3>
+          <p style="color: var(--muted); font-size: 15px; line-height: 1.8; margin-bottom: 24px;">لأن كل مساهمة تساعد في إخراج هذا المشروع إلى النور، ليصل إلى أكبر عدد ممكن من الناس بإذن الله.</p>
+          <button id="shareBtn" style="width: 100%; display: block; background: var(--ink); color: white; padding: 15px; border-radius: 16px; font-weight: 700; text-decoration: none; font-size: 16px; border: none; cursor: pointer; transition: 0.2s;" onmouseover="this.style.background='#2d5a4d'" onmouseout="this.style.background='#183c32'">ساهم في نشر نيات 🤍</button>
         </div>
       </div>
 
+      <!-- العمود الأيسر (الصف العلوي: هل تعلم | الصف السفلي: ماذا ستجد داخل المنصة) -->
       <div class="column-side">
+        <!-- مربع هل تعلم والأعمال اليومية -->
         <div class="info-box">
-          <h3 style="font-size: 18px; font-weight: 700; color: var(--ink); margin-top: 0; text-align: center; margin-bottom: 20px;">ماذا ستجد داخل المنصة؟</h3>
+          <h3 style="font-size: 18px; font-weight: 700; color: var(--ink); margin-top: 0; text-align: center; margin-bottom: 20px;">أن كثيرًا من الأعمال اليومية يمكن أن يؤجر عليها المسلم إذا صحت النية؟</h3>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <div style="background: white; padding: 12px; border-radius: 12px; border: 1px solid var(--line); font-size: 13px; text-align: center;">☕ شرب الماء</div>
+            <div style="background: white; padding: 12px; border-radius: 12px; border: 1px solid var(--line); font-size: 13px; text-align: center;">💼 الذهاب للعمل</div>
+            <div style="background: white; padding: 12px; border-radius: 12px; border: 1px solid var(--line); font-size: 13px; text-align: center;">📚 الدراسة</div>
+            <div style="background: white; padding: 12px; border-radius: 12px; border: 1px solid var(--line); font-size: 13px; text-align: center;">👨‍👩‍👧 الجلوس مع الأسرة</div>
+            <div style="background: white; padding: 12px; border-radius: 12px; border: 1px solid var(--line); font-size: 13px; text-align: center; grid-column: span 2;">😴 النوم</div>
+          </div>
+          <p style="text-align: center; font-weight: 700; color: var(--gold); margin-top: 15px; margin-bottom: 0;">كلها تبدأ من نية.</p>
+        </div>
+
+        <!-- مربع ماذا ستجد داخل المنصة؟ -->
+        <div class="info-box">
+          <h3 style="font-size: 20px; font-weight: 700; color: var(--ink); margin-top: 0; text-align: center; margin-bottom: 20px;">ماذا ستجد داخل المنصة؟</h3>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; text-align: center; font-size: 13px;">
             <div style="background: white; padding: 12px; border-radius: 12px; border: 1px solid var(--line);"><b>+1000</b><br>نية مباركة</div>
             <div style="background: white; padding: 12px; border-radius: 12px; border: 1px solid var(--line);">📂<br>تصنيفات سهلة</div>
@@ -139,14 +160,14 @@
           </div>
         </div>
       </div>
+
     </div>
 
-    <!-- مربع لماذا يستحق الدعم أصبح في منتصف الصفحة تماماً في الأسفل وبشكل متناسق -->
-    <div style="max-width: 650px; margin: 0 auto 80px; padding: 0 28px;">
-      <div class="info-box" style="text-align: center; background: rgba(255,253,247,.95); padding: 35px;">
-        <h3 style="font-size: 22px; font-weight: 700; color: var(--ink); margin-top: 0;">لماذا يستحق الدعم؟</h3>
-        <p style="color: var(--muted); font-size: 15px; line-height: 1.8; margin-bottom: 24px;">لأن كل مساهمة تساعد في إخراج هذا المشروع إلى النور، ليصل إلى أكبر عدد ممكن من الناس بإذن الله.</p>
-        <button id="shareBtn" style="width: 100%; display: block; background: var(--ink); color: white; padding: 15px; border-radius: 16px; font-weight: 700; text-decoration: none; font-size: 16px; border: none; cursor: pointer; transition: 0.2s;" onmouseover="this.style.background='#2d5a4d'" onmouseout="this.style.background='#183c32'">ساهم في نشر نيات 🤍</button>
+    <!-- المربع الداكن المنفصل: لماذا بدأنا نيات؟ (تحت ما هو نيات مباشرة كما في الصورة) -->
+    <div style="max-width: 1180px; margin: -20px auto 60px; padding: 0 28px;">
+      <div style="background: var(--ink); color: white; border-radius: 28px; padding: 32px; text-align: center; box-shadow: var(--shadow); max-width: calc(50% - 20px); margin-right: 0;">
+        <h3 style="font-size: 18px; color: #e1c98e; margin-top: 0; margin-bottom: 8px;">لماذا بدأنا نيات؟</h3>
+        <p style="font-size: 18px; font-weight: 600; margin-bottom: 0;">"لأننا كثيرًا ما نهتم بالعمل... وننسى النية."</p>
       </div>
     </div>
   </main>
