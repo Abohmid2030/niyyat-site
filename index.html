@@ -64,11 +64,11 @@
             <!-- Try buttons -->
             <div class="flex flex-wrap items-center justify-center gap-1.5 text-xs my-2">
                 <span class="text-stone-400 font-medium ml-1">جرب:</span>
-                <button onclick="setTopic('الصلاة في المسجد')" class="px-2.5 py-1 rounded-lg bg-white border border-stone-200 hover:bg-stone-100 text-stone-700 font-medium transition">الصلاة في المسجد</button>
-                <button onclick="setTopic('الأكل')" class="px-2.5 py-1 rounded-lg bg-white border border-stone-200 hover:bg-stone-100 text-stone-700 font-medium transition">الأكل</button>
-                <button onclick="setTopic('العمل')" class="px-2.5 py-1 rounded-lg bg-white border border-stone-200 hover:bg-stone-100 text-stone-700 font-medium transition">العمل</button>
-                <button onclick="setTopic('نظافة البيت')" class="px-2.5 py-1 rounded-lg bg-white border border-stone-200 hover:bg-stone-100 text-stone-700 font-medium transition">نظافة البيت</button>
-                <button onclick="setTopic('الجلوس مع الأسرة')" class="px-2.5 py-1 rounded-lg bg-white border border-stone-200 hover:bg-stone-100 text-stone-700 font-medium transition">الجلوس مع الأسرة</button>
+                <button onclick="setTopic('الصلاة في المسجد')" class="px-2.5 py-1 rounded-lg bg-white border border-stone-200 hover:bg-stone-100 text-stone-700 font-medium transition cursor-pointer">الصلاة في المسجد</button>
+                <button onclick="setTopic('الأكل')" class="px-2.5 py-1 rounded-lg bg-white border border-stone-200 hover:bg-stone-100 text-stone-700 font-medium transition cursor-pointer">الأكل</button>
+                <button onclick="setTopic('العمل')" class="px-2.5 py-1 rounded-lg bg-white border border-stone-200 hover:bg-stone-100 text-stone-700 font-medium transition cursor-pointer">العمل</button>
+                <button onclick="setTopic('نظافة البيت')" class="px-2.5 py-1 rounded-lg bg-white border border-stone-200 hover:bg-stone-100 text-stone-700 font-medium transition cursor-pointer">نظافة البيت</button>
+                <button onclick="setTopic('الجلوس مع الأسرة')" class="px-2.5 py-1 rounded-lg bg-white border border-stone-200 hover:bg-stone-100 text-stone-700 font-medium transition cursor-pointer">الجلوس مع الأسرة</button>
             </div>
 
             <!-- What is niyyat & Support integrated at bottom of right box -->
@@ -225,7 +225,9 @@
             loadingDiv.classList.remove('hidden');
             outputContent.innerHTML = '';
 
+            // تم ربط النظام المعرفي (Custom Prompt) بشكل صحيح وسليم مع النموذج
             const systemPrompt = `نظام معرفي دعوي–تربوي يحوّل الأعمال والأحوال إلى عبادة بالنية الصحيحة المنضبطة بالنص. الاسم: سلسلة النيات مع بدري – أن تحيا بنيّة. قواعد صارمة للإخراج: أخرج بالترتيب: خلاصة النيات بصيغة بطاقة أو قائمة + مقدمة ثابتة + حكم العمل + 7 إلى 12 نية بنص ومرجع من القرآن أو السنة الصحيحة + التطبيق العملي + الأسئلة الختامية + الخاتمة الثابتة. ممنوع الحديث الضعيف. اذكر السورة ورقم الآية ورقم الحديث. ممنوع استخدام: نويت / قل في قلبك. المعتمد: استحضر بقلبك نية.`;
+            const fullPrompt = `${systemPrompt}\n\nالمطلوب استخراج النيات لهذا العمل بالتفصيل الكامل وبدقة تامة: ${topic}`;
 
             const apiKey = "AIzaSyAWwEgw6wiuWUR2xlxS35t2cp_Iiv0aI30";
 
@@ -235,7 +237,7 @@
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ 
                         contents: [{ 
-                            parts: [{ text: `${systemPrompt}\n\nالمطلوب استخراج النيات لهذا العمل بالتفصيل الكامل: ${topic}` }] 
+                            parts: [{ text: fullPrompt }] 
                         }] 
                     })
                 });
@@ -243,17 +245,17 @@
                 const data = await response.json();
                 loadingDiv.classList.add('hidden');
                 
-                if (data.candidates && data.candidates[0]) {
+                if (data.candidates && data.candidates[0] && data.candidates[0].content) {
                     const text = data.candidates[0].content.parts[0].text;
                     outputContent.innerHTML = `<div class="bg-[#f7f6f2] p-5 rounded-xl border border-stone-200 text-sm md:text-base leading-relaxed">${text.replace(/\n/g, '<br>')}</div>`;
                 } else if (data.error) {
-                    outputContent.innerHTML = `<div class="p-3 bg-red-50 text-red-700 rounded-lg text-sm">خطأ تقني: ${data.error.message}</div>`;
+                    outputContent.innerHTML = `<div class="p-4 bg-red-50 text-red-700 rounded-lg text-sm">خطأ تقني من الخادم: ${data.error.message}</div>`;
                 } else {
-                    outputContent.innerHTML = `<div class="p-3 bg-red-50 text-red-700 rounded-lg text-sm">تعذر جلب النتيجة من الخادم.</div>`;
+                    outputContent.innerHTML = `<div class="p-4 bg-red-50 text-red-700 rounded-lg text-sm">تعذر جلب النتيجة من الخادم. تأكد من صحة مفتاح الربط.</div>`;
                 }
             } catch (err) {
                 loadingDiv.classList.add('hidden');
-                outputContent.innerHTML = `<div class="p-3 bg-red-50 text-red-700 rounded-lg text-sm">حدث خطأ في الاتصال بالشبكة.</div>`;
+                outputContent.innerHTML = `<div class="p-4 bg-red-50 text-red-700 rounded-lg text-sm">حدث خطأ في الاتصال بالشبكة. تأكد من اتصال الإنترنت لديك.</div>`;
             }
         }
     </script>
