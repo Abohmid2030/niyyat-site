@@ -28,7 +28,7 @@ export default async function handler(req, res) {
   const promptText = `${systemPrompt}\n\nالمطلوب استخراج النيات لهذا العمل بالتفصيل الكامل وحسب القواعد الصارمة تماماً مثل الـ Custom GPT: ${topic}`;
 
   try {
-    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
+    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -46,7 +46,7 @@ export default async function handler(req, res) {
     
     if (data.error) {
       return res.status(500).json({ 
-        error: `خطأ تقني من منصة الذكاء الاصطناعي: ${data.error.message || 'تجاوز حد الاستخدام المؤقت'}` 
+        error: `خطأ تقني من منصة الذكاء الاصطناعي: ${data.error.message || 'خطأ غير معروف'}` 
       });
     }
 
