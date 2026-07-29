@@ -34,7 +34,7 @@
         </div>
         <div class="text-center mt-1">
             <h2 class="hero-verse text-base md:text-xl font-bold text-amber-900/90 tracking-wide">
-                قُلْ إِنَّ صَلَاتِي وَنُسُكِي وَمَحْيَايَ وَمَمَاتِي لِلَّهِ رَبِّ الْعَالَمِينَ <span class="text-stone-500 font-normal text-sm">(162)</span>
+                قُلْ إِنَّ صَلَاتِي وَنُسُكِي وَمَحْيَايَ وَمَمَاتِي لِلَّهِ رَبِّ الْعَالَمِينَ (162) <span class="text-stone-500 font-normal text-sm">الأنعام</span>
             </h2>
         </div>
     </header>
@@ -274,7 +274,6 @@
             if (navigator.share) {
                 navigator.share(shareData).catch(() => {});
             } else {
-                // بديل في حال المتصفح لا يدعم المشاركة المباشرة (نسخ الرابط مع رسالة واتساب)
                 const whatsappText = encodeURIComponent(`${shareData.text} \n${shareData.url}`);
                 window.open(`https://wa.me/?text=${whatsappText}`, '_blank');
             }
