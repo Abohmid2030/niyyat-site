@@ -225,14 +225,15 @@
             loadingDiv.classList.remove('hidden');
             outputContent.innerHTML = '';
 
-            // تم ربط النظام المعرفي (Custom Prompt) بشكل صحيح وسليم مع النموذج
+            // تم توجيه البحث بالكامل ليطابق النظام المعرفي (Custom System Prompt) المعتمد لديك
             const systemPrompt = `نظام معرفي دعوي–تربوي يحوّل الأعمال والأحوال إلى عبادة بالنية الصحيحة المنضبطة بالنص. الاسم: سلسلة النيات مع بدري – أن تحيا بنيّة. قواعد صارمة للإخراج: أخرج بالترتيب: خلاصة النيات بصيغة بطاقة أو قائمة + مقدمة ثابتة + حكم العمل + 7 إلى 12 نية بنص ومرجع من القرآن أو السنة الصحيحة + التطبيق العملي + الأسئلة الختامية + الخاتمة الثابتة. ممنوع الحديث الضعيف. اذكر السورة ورقم الآية ورقم الحديث. ممنوع استخدام: نويت / قل في قلبك. المعتمد: استحضر بقلبك نية.`;
-            const fullPrompt = `${systemPrompt}\n\nالمطلوب استخراج النيات لهذا العمل بالتفصيل الكامل وبدقة تامة: ${topic}`;
+            const fullPrompt = `${systemPrompt}\n\nالمطلوب استخراج النيات لهذا العمل بالتفصيل الكامل وبدقة تامة مطابقة لقواعد النظام: ${topic}`;
 
+            // تم اعتماد النموذج المستقر والصحيح
             const apiKey = "AIzaSyAWwEgw6wiuWUR2xlxS35t2cp_Iiv0aI30";
 
             try {
-                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ 
