@@ -12,6 +12,7 @@
         .card-box { background: #faf9f5; border: 1px solid #ebe8de; border-radius: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.01); }
         .btn-primary { background-color: #0b2920; transition: all 0.2s; }
         .btn-primary:hover { background-color: #133e32; }
+        .main-title-brand { color: #0b2920; font-size: 1.35rem; font-weight: 900; letter-spacing: -0.5px; }
         .brand-slogan { color: #85581A; font-weight: 700; letter-spacing: 0.5px; }
     </style>
 </head>
@@ -82,7 +83,7 @@
             <p class="text-xs text-stone-500 font-medium">متفق عليه</p>
         </div>
 
-        <!-- Middle Section: Categories & Info -->
+        <!-- Middle Section: Categories & Unified Info/Support Section -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
             
             <!-- Left Card: Categories -->
@@ -133,75 +134,33 @@
                 <div class="text-center mt-3 text-xs text-stone-400 font-medium">ومئات الأعمال الأخرى</div>
             </div>
 
-            <!-- Right Card: What is Niyyat -->
-            <div class="card-box p-6 md:p-8 flex flex-col justify-between">
+            <!-- Right Card: Unified Bottom Left Box (What is Niyyat + Support combined) -->
+            <div class="card-box p-6 md:p-8 flex flex-col justify-between space-y-6">
+                <!-- Part 1: What is Niyyat -->
                 <div>
                     <div class="flex items-center gap-2 mb-2 text-stone-700 font-bold text-sm">
                         <span>ℹ️</span>
                         <span>ما هو نيات؟</span>
                     </div>
-                    <p class="text-stone-600 text-sm leading-relaxed mb-6">هو مشروع يهدف إلى مساعدتك على استحضار النية الصالحة في تفاصيل حياتك اليومية من خلال محتوى موثوق وتجربة استخدام بسيطة.</p>
+                    <p class="text-stone-600 text-sm leading-relaxed mb-4">هو مشروع يهدف إلى مساعدتك على استحضار النية الصالحة في تفاصيل حياتك اليومية من خلال محتوى موثوق وتجربة استخدام بسيطة.</p>
                 </div>
 
                 <div class="btn-primary text-white rounded-2xl p-4 text-center shadow-md">
                     <div class="font-bold text-sm mb-1">🌱 لماذا بدأنا نيات؟</div>
                     <p class="text-xs text-emerald-100">"لأننا كثيرا ما نهتم بالعمل... وننسى النية"</p>
                 </div>
-            </div>
 
-        </div>
-
-        <!-- Bottom Section: Features & Support -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            
-            <!-- Left Card: Platform Features -->
-            <div class="card-box p-6 md:p-8">
-                <h4 class="text-center font-bold text-slate-800 text-base mb-5">ماذا ستجد داخل المنصة؟</h4>
-                
-                <div class="grid grid-cols-2 gap-3 mb-3">
-                    <div class="p-3.5 rounded-2xl border border-stone-200/80 bg-white shadow-sm flex items-center gap-3">
-                        <span class="text-lg">🔍</span>
-                        <span class="text-xs font-bold text-stone-700">بحث سريع</span>
-                    </div>
-                    <div class="p-3.5 rounded-2xl border border-stone-200/80 bg-white shadow-sm flex items-center gap-3">
-                        <span class="text-lg">☀️</span>
-                        <span class="text-xs font-bold text-stone-700">نية اليوم</span>
-                    </div>
-                    <div class="p-3.5 rounded-2xl border border-stone-200/80 bg-white shadow-sm flex items-center gap-3">
-                        <span class="text-lg">⭐</span>
-                        <span class="text-xs font-bold text-stone-700">+1000 نية مباركة</span>
-                    </div>
-                    <div class="p-3.5 rounded-2xl border border-stone-200/80 bg-white shadow-sm flex items-center gap-3">
-                        <span class="text-lg">📁</span>
-                        <span class="text-xs font-bold text-stone-700">تصنيفات سهلة</span>
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-2 gap-3">
-                    <div class="p-3.5 rounded-2xl border border-stone-200/80 bg-white shadow-sm flex items-center gap-3">
-                        <span class="text-lg">🔔</span>
-                        <span class="text-xs font-bold text-stone-700">تذكير بالنيات</span>
-                    </div>
-                    <div class="p-3.5 rounded-2xl border border-stone-200/80 bg-white shadow-sm flex items-center gap-3">
-                        <span class="text-lg">📖</span>
-                        <span class="text-xs font-bold text-stone-700">مكتبة النيات الخاصة بك</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Card: Support -->
-            <div class="card-box p-6 md:p-8 flex flex-col justify-between">
-                <div>
+                <div class="border-t border-stone-200/60 pt-5">
                     <div class="flex items-center gap-2 mb-2 text-rose-600 font-bold text-sm">
                         <span>❤️</span>
                         <span>لماذا تحتاج الدعم؟</span>
                     </div>
-                    <p class="text-stone-600 text-sm leading-relaxed mb-6">لأن كل مساهمة تساعد في إنجاح هذا المشروع الذي يصل الخير إلى عدد ممكن من الناس بإذن الله.</p>
+                    <p class="text-stone-600 text-sm leading-relaxed mb-4">لأن كل مساهمة تساعد في إنجاح هذا المشروع الذي يصل الخير إلى عدد ممكن من الناس بإذن الله.</p>
+                    
+                    <button onclick="shareProject()" class="w-full btn-primary text-white font-bold py-3.5 rounded-2xl shadow-md flex items-center justify-center gap-2 text-sm cursor-pointer">
+                        <span>❤️ ساهم في نشر نيات</span>
+                    </button>
                 </div>
-
-                <button onclick="shareProject()" class="w-full btn-primary text-white font-bold py-3.5 rounded-2xl shadow-md flex items-center justify-center gap-2 text-sm cursor-pointer">
-                    <span>❤️ ساهم في نشر نيات</span>
-                </button>
             </div>
 
         </div>
