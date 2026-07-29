@@ -68,6 +68,7 @@
     
     <section class="verse" id="about"><p>«إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ، وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى»</p><small>متفق عليه</small></section>
     
+    <!-- قسم النتيجة التفاعلية المباشرة تحت الآية -->
     <section class="result" id="result" aria-live="polite">
       <div class="result-head"><div class="mini">نتيجة إرشادية تجريبية</div><h2 id="resultTitle">نيات العمل</h2></div>
       <div class="poster"><div class="poster-label">أن تحيا بنيّة</div><h3 id="posterTitle">خلاصة نيات العمل</h3><ol id="posterList"></ol></div>
@@ -76,6 +77,7 @@
       <div class="practice"><h3>التطبيق العملي</h3><div class="practice-grid"><div><b>قبل العمل</b>استحضر بقلبك النيات الصالحة، وتحقق من الحقوق والواجبات.</div><div><b>أثناء العمل</b>راقب الصدق والإتقان وكف الأذى، وجدّد حضور القلب.</div><div><b>بعد العمل</b>احمد الله، وراجع تقصيرك، وردّ أي حق إن وُجد.</div></div></div>
     </section>
 
+    <!-- الأقسام الإضافية التعريفية -->
     <div class="extra-sections">
       <div style="display: flex; flex-direction: column; gap: 30px;">
         <div class="info-box">
@@ -139,9 +141,34 @@
     {t:'شكر نعمة القدرة والفرصة',q:'قال تعالى: «لَئِن شَكَرْتُمْ لَأَزِيدَنَّكُمْ» [إبراهيم: 7]'},
     {t:'كف الأذى وحفظ حقوق الآخرين',q:'قال النبي ﷺ: «المسلم من سلم المسلمون من لسانه ويده» [صحيح البخاري: 10]'}
   ];
-  const topic=document.getElementById('topic'),result=document.getElementById('result');
-  function render(){const value=topic.value.trim();if(!value){topic.focus();return}document.getElementById('resultTitle').textContent=`نيات ${value}`;document.getElementById('posterTitle').textContent=`خلاصة نيات ${value}`;document.getElementById('posterList').innerHTML=intents.map(x=><li>${x.t}</li>).join('');document.getElementById('intentList').innerHTML=intents.map((x,i)=>`<article class="intent"><h4>${['١','٢','٣','٤','٥','٦','٧','٨'][i]}. نية ${x.t}</h4><p>${x.q}</p></article>).join('');result.classList.add('show');result.scrollIntoView({behavior:'smooth',block:'start'})}
-  document.getElementById('generate').addEventListener('click',render);topic.addEventListener('keydown',e=>{if(e.key==='Enter')render()});document.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>{topic.value=c.textContent;render()}));
+  
+  const topic = document.getElementById('topic');
+  const result = document.getElementById('result');
+
+  function render() {
+    const value = topic.value.trim();
+    if (!value) {
+      topic.focus();
+      return;
+    }
+    document.getElementById('resultTitle').textContent = `نيات ${value}`;
+    document.getElementById('posterTitle').textContent = `خلاصة نيات ${value}`;
+    document.getElementById('posterList').innerHTML = intents.map(x => `<li>${x.t}</li>`).join('');
+    document.getElementById('intentList').innerHTML = intents.map((x, i) => `<article class="intent"><h4>${['١','٢','٣','٤','٥','٦','٧','٨'][i]}. نية ${x.t}</h4><p>${x.q}</p></article>).join('');
+    
+    // تفعيل ظهور النتيجة والانتقال إليها
+    result.classList.add('show');
+    result.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  document.getElementById('generate').addEventListener('click', render);
+  topic.addEventListener('keydown', e => {
+    if (e.key === 'Enter') render();
+  });
+  document.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => {
+    topic.value = c.textContent;
+    render();
+  }));
 </script>
 </body>
 </html>
