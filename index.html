@@ -7,9 +7,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Tajawal', sans-serif; background-color: #fcfbf9; }
+        body { font-family: 'Tajawal', sans-serif; background-color: #f7f6f2; }
         .hero-verse { font-family: 'Tajawal', serif; }
-        .card-box { background: #ffffff; border: 1px solid #f1f0eb; border-radius: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.02); }
+        .card-box { background: #faf9f5; border: 1px solid #ebe8de; border-radius: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.01); }
         .btn-primary { background-color: #0b2920; transition: all 0.2s; }
         .btn-primary:hover { background-color: #133e32; }
     </style>
@@ -17,84 +17,84 @@
 <body class="text-slate-800 min-h-screen flex flex-col justify-between">
 
     <!-- Header -->
-    <header class="w-full py-6 px-6 md:px-12 flex flex-col items-center border-b border-stone-200/60 bg-white/80 backdrop-blur-md sticky top-0 z-50">
-        <div class="w-full max-w-7xl flex items-center justify-between mb-4">
+    <header class="w-full py-5 px-6 md:px-12 flex flex-col items-center border-b border-stone-200/60 bg-[#f7f6f2] sticky top-0 z-50">
+        <div class="w-full max-w-7xl flex items-center justify-between mb-3">
             <div class="flex items-center gap-3">
-                <div class="w-12 h-12 rounded-full border-2 border-amber-500/80 flex items-center justify-center text-amber-600 font-black text-xl shadow-sm bg-amber-50/30">ن</div>
+                <div class="w-12 h-12 rounded-full border-2 border-amber-500/80 flex items-center justify-center text-amber-600 font-black text-xl shadow-sm bg-amber-50/50">ن</div>
                 <div>
                     <h1 class="text-xl font-black text-slate-900 tracking-tight">نيات</h1>
-                    <p class="text-xs text-slate-500 font-medium">سلسلة النيات مع بدري</p>
+                    <p class="text-xs text-stone-500 font-medium">سلسلة النيات مع بدري</p>
                 </div>
             </div>
-            <div class="flex items-center gap-4">
-                <a href="#about" class="text-slate-700 hover:text-slate-900 font-medium text-sm px-4 py-2 rounded-xl border border-stone-200 bg-white shadow-sm transition">عن المنصة</a>
-                <a href="#start" class="btn-primary text-white text-sm font-bold px-6 py-2.5 rounded-xl shadow-md">ابدأ الآن</a>
+            <div class="flex items-center gap-3">
+                <a href="#about" class="text-stone-700 hover:text-slate-900 font-medium text-sm px-4 py-2 rounded-xl border border-stone-300/80 bg-[#f7f6f2] shadow-sm transition">عن المنصة</a>
+                <a href="#start" class="btn-primary text-white text-sm font-bold px-6 py-2 rounded-xl shadow-md">ابدأ الآن</a>
             </div>
         </div>
-        <div class="text-center mt-2">
-            <h2 class="hero-verse text-lg md:text-2xl font-bold text-amber-900/90 tracking-wide">
-                قُلْ إِنَّ صَلَاتِي وَنُسُكِي وَمَحْيَايَ وَمَمَاتِي لِلَّهِ رَبِّ الْعَالَمِينَ <span class="text-stone-500 font-normal text-base">(162)</span>
+        <div class="text-center mt-1">
+            <h2 class="hero-verse text-base md:text-xl font-bold text-amber-900/90 tracking-wide">
+                قُلْ إِنَّ صَلَاتِي وَنُسُكِي وَمَحْيَايَ وَمَمَاتِي لِلَّهِ رَبِّ الْعَالَمِينَ <span class="text-stone-500 font-normal text-sm">(162)</span>
             </h2>
         </div>
     </header>
 
     <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-4 md:px-8 py-8 flex-grow w-full space-y-8">
+    <main class="max-w-7xl mx-auto px-4 md:px-8 py-6 flex-grow w-full space-y-6">
         
         <!-- Top Section: Interactive Box & Info Box -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
             
             <!-- Left Card: Input Box -->
             <div class="card-box p-6 md:p-8 flex flex-col justify-between">
                 <div>
-                    <div class="flex items-center justify-between mb-6">
-                        <span class="text-xs font-bold text-amber-700 bg-amber-50 px-3 py-1 rounded-full border border-amber-200/60">بوابة النية</span>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-bold text-amber-700 bg-amber-100/60 px-3 py-1 rounded-full border border-amber-200">بوابة النية</span>
                     </div>
-                    <h3 class="text-2xl md:text-3xl font-black text-slate-900 mb-6 text-center">ما العمل الذي ستقوم به؟</h3>
+                    <h3 class="text-2xl md:text-3xl font-black text-slate-900 mb-5 text-center">ما العمل الذي ستقوم به؟</h3>
                     
                     <div class="space-y-4">
                         <input type="text" id="topicInput" placeholder="مثال: الذهاب إلى العمل، الدراسة، المذاكرة..." 
-                            class="w-full px-5 py-4 rounded-2xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-emerald-800 text-base bg-stone-50/50 shadow-inner">
+                            class="w-full px-5 py-3.5 rounded-2xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-emerald-800 text-base bg-white shadow-inner">
                         
-                        <button onclick="generateNiyyat()" class="w-full btn-primary text-white font-bold py-4 rounded-2xl shadow-lg flex items-center justify-center gap-2 text-lg">
+                        <button onclick="generateNiyyat()" class="w-full btn-primary text-white font-bold py-3.5 rounded-2xl shadow-md flex items-center justify-center gap-2 text-base">
                             استخرج النية
                         </button>
                     </div>
                 </div>
 
-                <div class="mt-8 pt-6 border-t border-stone-100 flex flex-wrap items-center gap-2 text-sm">
-                    <span class="text-stone-400 font-medium ml-1">جرب:</span>
-                    <button onclick="setTopic('الصلاة في المسجد')" class="px-3.5 py-1.5 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-medium transition">الصلاة في المسجد</button>
-                    <button onclick="setTopic('الأكل')" class="px-3.5 py-1.5 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-medium transition">الأكل</button>
-                    <button onclick="setTopic('العمل')" class="px-3.5 py-1.5 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-medium transition">العمل</button>
-                    <button onclick="setTopic('نظافة البيت')" class="px-3.5 py-1.5 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-medium transition">نظافة البيت</button>
-                    <button onclick="setTopic('الجلوس مع الأسرة')" class="px-3.5 py-1.5 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-medium transition">الجلوس مع الأسرة</button>
+                <div class="mt-6 pt-4 border-t border-stone-200/60 flex flex-wrap items-center gap-2 text-sm">
+                    <span class="text-stone-400 font-medium ml-1 text-xs">جرب:</span>
+                    <button onclick="setTopic('الصلاة في المسجد')" class="px-3 py-1.5 rounded-xl bg-white border border-stone-200 hover:bg-stone-100 text-stone-700 text-xs font-medium transition">الصلاة في المسجد</button>
+                    <button onclick="setTopic('الأكل')" class="px-3 py-1.5 rounded-xl bg-white border border-stone-200 hover:bg-stone-100 text-stone-700 text-xs font-medium transition">الأكل</button>
+                    <button onclick="setTopic('العمل')" class="px-3 py-1.5 rounded-xl bg-white border border-stone-200 hover:bg-stone-100 text-stone-700 text-xs font-medium transition">العمل</button>
+                    <button onclick="setTopic('نظافة البيت')" class="px-3 py-1.5 rounded-xl bg-white border border-stone-200 hover:bg-stone-100 text-stone-700 text-xs font-medium transition">نظافة البيت</button>
+                    <button onclick="setTopic('الجلوس مع الأسرة')" class="px-3 py-1.5 rounded-xl bg-white border border-stone-200 hover:bg-stone-100 text-stone-700 text-xs font-medium transition">الجلوس مع الأسرة</button>
                 </div>
             </div>
 
             <!-- Right Card: Description Box -->
             <div class="card-box p-6 md:p-8 flex flex-col justify-between">
                 <div>
-                    <div class="flex items-center gap-2 mb-4 text-amber-700 font-bold text-sm">
+                    <div class="flex items-center gap-2 mb-3 text-amber-700 font-bold text-sm">
                         <span>✦</span>
                         <span>كن نبيّاً بنيّة</span>
                     </div>
-                    <h3 class="text-2xl font-black text-slate-900 mb-3">حول عاداتك اليومية إلى عبادات</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-6">استخرج النيات الصالحة لأعمالك اليومية، في ضوء القرآن والسنة الصحيحة.</p>
+                    <h3 class="text-2xl font-black text-slate-900 mb-2">حول عاداتك اليومية إلى عبادات</h3>
+                    <p class="text-stone-600 text-sm leading-relaxed mb-6">استخرج النيات الصالحة لأعمالك اليومية، في ضوء القرآن والسنة الصحيحة.</p>
                 </div>
 
-                <div class="grid grid-cols-3 gap-3 pt-6 border-t border-stone-100 text-center">
-                    <div class="p-3 rounded-2xl bg-stone-50 border border-stone-100">
+                <div class="grid grid-cols-3 gap-3 pt-4 border-t border-stone-200/60 text-center">
+                    <div class="p-3 rounded-2xl bg-white border border-stone-200/80 shadow-sm">
                         <div class="text-emerald-800 font-bold text-sm mb-1">✓</div>
-                        <div class="text-xs text-slate-600 font-medium">نية منضبطة بالنص</div>
+                        <div class="text-xs text-stone-700 font-medium">نية منضبطة بالنص</div>
                     </div>
-                    <div class="p-3 rounded-2xl bg-stone-50 border border-stone-100">
+                    <div class="p-3 rounded-2xl bg-white border border-stone-200/80 shadow-sm">
                         <div class="text-emerald-800 font-bold text-sm mb-1">✓</div>
-                        <div class="text-xs text-slate-600 font-medium">تطبيق عملي</div>
+                        <div class="text-xs text-stone-700 font-medium">تطبيق عملي</div>
                     </div>
-                    <div class="p-3 rounded-2xl bg-stone-50 border border-stone-100">
+                    <div class="p-3 rounded-2xl bg-white border border-stone-200/80 shadow-sm">
                         <div class="text-emerald-800 font-bold text-sm mb-1">✓</div>
-                        <div class="text-xs text-slate-600 font-medium">مراجعة التحقق</div>
+                        <div class="text-xs text-stone-700 font-medium">مراجعة التحقق</div>
                     </div>
                 </div>
             </div>
@@ -102,59 +102,59 @@
         </div>
 
         <!-- Hadith Banner -->
-        <div class="text-center py-6 my-4">
-            <h3 class="hero-verse text-xl md:text-2xl font-bold text-amber-900/90 tracking-wide mb-1">
+        <div class="text-center py-4 my-2">
+            <h3 class="hero-verse text-lg md:text-xl font-bold text-amber-900/90 tracking-wide mb-1">
                 «إِنَّمَا الأَعْمَالُ بِالنِّيَّاتِ، وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى»
             </h3>
             <p class="text-xs text-stone-500 font-medium">متفق عليه</p>
         </div>
 
         <!-- Middle Section: Categories & Info -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
             
             <!-- Left Card: Categories -->
             <div class="card-box p-6 md:p-8">
-                <h4 class="text-center font-bold text-slate-800 text-lg mb-6">أن كثيرا من الأعمال اليومية يمكن أن يؤجر عليها المسلم إذا صحت النية</h4>
+                <h4 class="text-center font-bold text-slate-800 text-base mb-5">أن كثيرا من الأعمال اليومية يمكن أن يؤجر عليها المسلم إذا صحت النية</h4>
                 
-                <div class="grid grid-cols-4 gap-4 mb-6">
-                    <div class="flex flex-col items-center p-3 rounded-2xl border border-stone-100 hover:border-emerald-200 transition bg-white group cursor-pointer" onclick="setTopic('طلب العلم')">
-                        <div class="w-12 h-12 rounded-full bg-emerald-50 text-emerald-800 flex items-center justify-center mb-2 group-hover:bg-emerald-800 group-hover:text-white transition">📚</div>
-                        <span class="text-xs font-bold text-slate-700 text-center">طلب العلم</span>
+                <div class="grid grid-cols-4 gap-3 mb-5">
+                    <div class="flex flex-col items-center p-3 rounded-2xl border border-stone-200/80 hover:border-emerald-300 transition bg-white shadow-sm group cursor-pointer" onclick="setTopic('طلب العلم')">
+                        <div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-800 flex items-center justify-center mb-1.5 group-hover:bg-emerald-800 group-hover:text-white transition">📚</div>
+                        <span class="text-xs font-bold text-stone-700 text-center">طلب العلم</span>
                     </div>
-                    <div class="flex flex-col items-center p-3 rounded-2xl border border-stone-100 hover:border-emerald-200 transition bg-white group cursor-pointer" onclick="setTopic('بر الوالدين')">
-                        <div class="w-12 h-12 rounded-full bg-emerald-50 text-emerald-800 flex items-center justify-center mb-2 group-hover:bg-emerald-800 group-hover:text-white transition">👥</div>
-                        <span class="text-xs font-bold text-slate-700 text-center">بر الوالدين</span>
+                    <div class="flex flex-col items-center p-3 rounded-2xl border border-stone-200/80 hover:border-emerald-300 transition bg-white shadow-sm group cursor-pointer" onclick="setTopic('بر الوالدين')">
+                        <div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-800 flex items-center justify-center mb-1.5 group-hover:bg-emerald-800 group-hover:text-white transition">👥</div>
+                        <span class="text-xs font-bold text-stone-700 text-center">بر الوالدين</span>
                     </div>
-                    <div class="flex flex-col items-center p-3 rounded-2xl border border-stone-100 hover:border-emerald-200 transition bg-white group cursor-pointer" onclick="setTopic('طاعة الزوج')">
-                        <div class="w-12 h-12 rounded-full bg-emerald-50 text-emerald-800 flex items-center justify-center mb-2 group-hover:bg-emerald-800 group-hover:text-white transition">❤️</div>
-                        <span class="text-xs font-bold text-slate-700 text-center">طاعة الزوج</span>
+                    <div class="flex flex-col items-center p-3 rounded-2xl border border-stone-200/80 hover:border-emerald-300 transition bg-white shadow-sm group cursor-pointer" onclick="setTopic('طاعة الزوج')">
+                        <div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-800 flex items-center justify-center mb-1.5 group-hover:bg-emerald-800 group-hover:text-white transition">❤️</div>
+                        <span class="text-xs font-bold text-stone-700 text-center">طاعة الزوج</span>
                     </div>
-                    <div class="flex flex-col items-center p-3 rounded-2xl border border-stone-100 hover:border-emerald-200 transition bg-white group cursor-pointer" onclick="setTopic('فتح')">
-                        <div class="w-12 h-12 rounded-full bg-emerald-50 text-emerald-800 flex items-center justify-center mb-2 group-hover:bg-emerald-800 group-hover:text-white transition">💼</div>
-                        <span class="text-xs font-bold text-slate-700 text-center">فتح</span>
+                    <div class="flex flex-col items-center p-3 rounded-2xl border border-stone-200/80 hover:border-emerald-300 transition bg-white shadow-sm group cursor-pointer" onclick="setTopic('فتح')">
+                        <div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-800 flex items-center justify-center mb-1.5 group-hover:bg-emerald-800 group-hover:text-white transition">💼</div>
+                        <span class="text-xs font-bold text-stone-700 text-center">فتح</span>
                     </div>
                 </div>
 
-                <div class="grid grid-cols-5 gap-3 pt-4 border-t border-stone-100 text-center">
-                    <div class="flex flex-col items-center cursor-pointer" onclick="setTopic('الذهاب إلى العمل')">
-                        <div class="text-stone-600 mb-1">🏢</div>
-                        <span class="text-[11px] text-slate-600">الذهاب العمل</span>
+                <div class="grid grid-cols-5 gap-2 pt-4 border-t border-stone-200/60 text-center">
+                    <div class="flex flex-col items-center cursor-pointer group" onclick="setTopic('الذهاب إلى العمل')">
+                        <div class="w-8 h-8 rounded-full border border-stone-200 bg-white flex items-center justify-center text-xs mb-1 group-hover:bg-emerald-50">🏢</div>
+                        <span class="text-[11px] text-stone-600 font-medium">الذهاب العمل</span>
                     </div>
-                    <div class="flex flex-col items-center cursor-pointer" onclick="setTopic('الصلاة في المسجد')">
-                        <div class="text-stone-600 mb-1">🕌</div>
-                        <span class="text-[11px] text-slate-600">الصلاة في المسجد</span>
+                    <div class="flex flex-col items-center cursor-pointer group" onclick="setTopic('الصلاة في المسجد')">
+                        <div class="w-8 h-8 rounded-full border border-stone-200 bg-white flex items-center justify-center text-xs mb-1 group-hover:bg-emerald-50">🕌</div>
+                        <span class="text-[11px] text-stone-600 font-medium">الصلاة المسجد</span>
                     </div>
-                    <div class="flex flex-col items-center cursor-pointer" onclick="setTopic('المذاكرة')">
-                        <div class="text-stone-600 mb-1">📖</div>
-                        <span class="text-[11px] text-slate-600">المذاكرة</span>
+                    <div class="flex flex-col items-center cursor-pointer group" onclick="setTopic('المذاكرة')">
+                        <div class="w-8 h-8 rounded-full border border-stone-200 bg-white flex items-center justify-center text-xs mb-1 group-hover:bg-emerald-50">📖</div>
+                        <span class="text-[11px] text-stone-600 font-medium">المذاكرة</span>
                     </div>
-                    <div class="flex flex-col items-center cursor-pointer" onclick="setTopic('تناول الطعام')">
-                        <div class="text-stone-600 mb-1">🍽️</div>
-                        <span class="text-[11px] text-slate-600">تناول الطعام</span>
+                    <div class="flex flex-col items-center cursor-pointer group" onclick="setTopic('تناول الطعام')">
+                        <div class="w-8 h-8 rounded-full border border-stone-200 bg-white flex items-center justify-center text-xs mb-1 group-hover:bg-emerald-50">🍽️</div>
+                        <span class="text-[11px] text-stone-600 font-medium">تناول الطعام</span>
                     </div>
-                    <div class="flex flex-col items-center cursor-pointer" onclick="setTopic('الجلوس مع الأسرة')">
-                        <div class="text-stone-600 mb-1">👨‍👩‍👧‍👦</div>
-                        <span class="text-[11px] text-slate-600">الجلوس مع الأسرة</span>
+                    <div class="flex flex-col items-center cursor-pointer group" onclick="setTopic('الجلوس مع الأسرة')">
+                        <div class="w-8 h-8 rounded-full border border-stone-200 bg-white flex items-center justify-center text-xs mb-1 group-hover:bg-emerald-50">👨‍👩‍👧‍👦</div>
+                        <span class="text-[11px] text-stone-600 font-medium">جلسة الأسرة</span>
                     </div>
                 </div>
                 <div class="text-center mt-3 text-xs text-stone-400 font-medium">ومئات الأعمال الأخرى</div>
@@ -163,11 +163,11 @@
             <!-- Right Card: What is Niyyat -->
             <div class="card-box p-6 md:p-8 flex flex-col justify-between">
                 <div>
-                    <div class="flex items-center gap-2 mb-3 text-slate-700 font-bold text-sm">
+                    <div class="flex items-center gap-2 mb-2 text-stone-700 font-bold text-sm">
                         <span>ℹ️</span>
                         <span>ما هو نيات؟</span>
                     </div>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-6">هو مشروع يهدف إلى مساعدتك على استحضار النية الصالحة في تفاصيل حياتك اليومية من خلال محتوى موثوق وتجربة استخدام بسيطة.</p>
+                    <p class="text-stone-600 text-sm leading-relaxed mb-6">هو مشروع يهدف إلى مساعدتك على استحضار النية الصالحة في تفاصيل حياتك اليومية من خلال محتوى موثوق وتجربة استخدام بسيطة.</p>
                 </div>
 
                 <div class="btn-primary text-white rounded-2xl p-4 text-center shadow-md">
@@ -179,39 +179,39 @@
         </div>
 
         <!-- Bottom Section: Features & Support -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
             
             <!-- Left Card: Platform Features -->
             <div class="card-box p-6 md:p-8">
-                <h4 class="text-center font-bold text-slate-800 text-lg mb-6">ماذا ستجد داخل المنصة؟</h4>
+                <h4 class="text-center font-bold text-slate-800 text-base mb-5">ماذا ستجد داخل المنصة؟</h4>
                 
-                <div class="grid grid-cols-2 gap-4 mb-4">
-                    <div class="p-4 rounded-2xl border border-stone-100 bg-stone-50/50 flex items-center gap-3">
-                        <span class="text-xl">🔍</span>
-                        <span class="text-sm font-bold text-slate-700">بحث سريع</span>
+                <div class="grid grid-cols-2 gap-3 mb-3">
+                    <div class="p-3.5 rounded-2xl border border-stone-200/80 bg-white shadow-sm flex items-center gap-3">
+                        <span class="text-lg">🔍</span>
+                        <span class="text-xs font-bold text-stone-700">بحث سريع</span>
                     </div>
-                    <div class="p-4 rounded-2xl border border-stone-100 bg-stone-50/50 flex items-center gap-3">
-                        <span class="text-xl">☀️</span>
-                        <span class="text-sm font-bold text-slate-700">نية اليوم</span>
+                    <div class="p-3.5 rounded-2xl border border-stone-200/80 bg-white shadow-sm flex items-center gap-3">
+                        <span class="text-lg">☀️</span>
+                        <span class="text-xs font-bold text-stone-700">نية اليوم</span>
                     </div>
-                    <div class="p-4 rounded-2xl border border-stone-100 bg-stone-50/50 flex items-center gap-3">
-                        <span class="text-xl">⭐</span>
-                        <span class="text-sm font-bold text-slate-700">+1000 نية مباركة</span>
+                    <div class="p-3.5 rounded-2xl border border-stone-200/80 bg-white shadow-sm flex items-center gap-3">
+                        <span class="text-lg">⭐</span>
+                        <span class="text-xs font-bold text-stone-700">+1000 نية مباركة</span>
                     </div>
-                    <div class="p-4 rounded-2xl border border-stone-100 bg-stone-50/50 flex items-center gap-3">
-                        <span class="text-xl">📁</span>
-                        <span class="text-sm font-bold text-slate-700">تصنيفات سهلة</span>
+                    <div class="p-3.5 rounded-2xl border border-stone-200/80 bg-white shadow-sm flex items-center gap-3">
+                        <span class="text-lg">📁</span>
+                        <span class="text-xs font-bold text-stone-700">تصنيفات سهلة</span>
                     </div>
                 </div>
 
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="p-4 rounded-2xl border border-stone-100 bg-stone-50/50 flex items-center gap-3">
-                        <span class="text-xl">🔔</span>
-                        <span class="text-sm font-bold text-slate-700">تذكير بالنيات</span>
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="p-3.5 rounded-2xl border border-stone-200/80 bg-white shadow-sm flex items-center gap-3">
+                        <span class="text-lg">🔔</span>
+                        <span class="text-xs font-bold text-stone-700">تذكير بالنيات</span>
                     </div>
-                    <div class="p-4 rounded-2xl border border-stone-100 bg-stone-50/50 flex items-center gap-3">
-                        <span class="text-xl">📖</span>
-                        <span class="text-sm font-bold text-slate-700">مكتبة النيات الخاصة بك</span>
+                    <div class="p-3.5 rounded-2xl border border-stone-200/80 bg-white shadow-sm flex items-center gap-3">
+                        <span class="text-lg">📖</span>
+                        <span class="text-xs font-bold text-stone-700">مكتبة النيات الخاصة بك</span>
                     </div>
                 </div>
             </div>
@@ -219,14 +219,14 @@
             <!-- Right Card: Support -->
             <div class="card-box p-6 md:p-8 flex flex-col justify-between">
                 <div>
-                    <div class="flex items-center gap-2 mb-3 text-rose-600 font-bold text-sm">
+                    <div class="flex items-center gap-2 mb-2 text-rose-600 font-bold text-sm">
                         <span>❤️</span>
                         <span>لماذا تحتاج الدعم؟</span>
                     </div>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-6">لأن كل مساهمة تساعد في إنجاح هذا المشروع الذي يصل الخير إلى عدد ممكن من الناس بإذن الله.</p>
+                    <p class="text-stone-600 text-sm leading-relaxed mb-6">لأن كل مساهمة تساعد في إنجاح هذا المشروع الذي يصل الخير إلى عدد ممكن من الناس بإذن الله.</p>
                 </div>
 
-                <button class="w-full btn-primary text-white font-bold py-4 rounded-2xl shadow-md flex items-center justify-center gap-2 text-sm">
+                <button class="w-full btn-primary text-white font-bold py-3.5 rounded-2xl shadow-md flex items-center justify-center gap-2 text-sm">
                     <span>❤️ ساهم في نشر نيات</span>
                 </button>
             </div>
@@ -234,10 +234,10 @@
         </div>
 
         <!-- Result Container (Hidden by default, shown when generating) -->
-        <div id="resultContainer" class="hidden card-box p-8 border-2 border-emerald-800">
-            <div id="loadingDiv" class="text-center py-12 hidden">
-                <div class="inline-block animate-spin rounded-full h-10 w-10 border-4 border-emerald-800 border-t-transparent mb-4"></div>
-                <p class="text-base font-bold text-emerald-900">⏳ جاري استخراج النيات بعمق ودقة شرعية...</p>
+        <div id="resultContainer" class="hidden card-box p-6 md:p-8 border-2 border-emerald-800 bg-white">
+            <div id="loadingDiv" class="text-center py-10 hidden">
+                <div class="inline-block animate-spin rounded-full h-10 w-10 border-4 border-emerald-800 border-t-transparent mb-3"></div>
+                <p class="text-sm font-bold text-emerald-900">⏳ جاري استخراج النيات بعمق ودقة شرعية...</p>
             </div>
             <div id="outputContent" class="text-slate-700 leading-relaxed space-y-4"></div>
         </div>
@@ -245,13 +245,13 @@
     </main>
 
     <!-- Footer -->
-    <footer class="w-full py-6 px-6 border-t border-stone-200/60 bg-white mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+    <footer class="w-full py-5 px-6 border-t border-stone-200/60 bg-[#f7f6f2] mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-500">
         <div>جميع الحقوق محفوظة © سلسلة النيات مع بدري</div>
-        <div class="flex items-center gap-4 text-stone-700">
-            <a href="#" class="hover:text-emerald-800 transition">يوتيوب</a>
-            <a href="#" class="hover:text-emerald-800 transition">انستغرام</a>
-            <a href="#" class="hover:text-emerald-800 transition</i>">تيليجرام</a>
-            <a href="#" class="hover:text-emerald-800 transition">واتساب</a>
+        <div class="flex items-center gap-5 text-stone-700 text-base">
+            <a href="#" class="hover:text-emerald-800 transition">▶</a>
+            <a href="#" class="hover:text-emerald-800 transition">📸</a>
+            <a href="#" class="hover:text-emerald-800 transition">✈️</a>
+            <a href="#" class="hover:text-emerald-800 transition">💬</a>
         </div>
         <div>العبد الفقير / أحمد مصطفى بدري</div>
     </footer>
@@ -281,7 +281,6 @@
 
             const systemPrompt = `نظام معرفي دعوي–تربوي يحوّل الأعمال والأحوال إلى عبادة بالنية الصحيحة المنضبطة بالنص. الاسم: سلسلة النيات مع بدري – أن تحيا بنيّة. قواعد صارمة للإخراج: أخرج بالترتيب: خلاصة النيات بصيغة بطاقة أو قائمة + مقدمة ثابتة + حكم العمل + 7 إلى 12 نية بنص ومرجع من القرآن أو السنة الصحيحة + التطبيق العملي + الأسئلة الختامية + الخاتمة الثابتة. ممنوع الحديث الضعيف. اذكر السورة ورقم الآية ورقم الحديث. ممنوع استخدام: نويت / قل في قلبك. المعتمد: استحضر بقلبك نية.`;
 
-            // مفتاحك الحقيقي الذي أرسلته
             const apiKey = "AIzaSyAWwEgw6wiuWUR2xlxS35t2cp_Iiv0aI30";
 
             try {
@@ -300,7 +299,7 @@
                 
                 if (data.candidates && data.candidates[0]) {
                     const text = data.candidates[0].content.parts[0].text;
-                    outputContent.innerHTML = `<div class="bg-emerald-50/50 p-6 rounded-2xl border border-emerald-100">${text.replace(/\n/g, '<br>')}</div>`;
+                    outputContent.innerHTML = `<div class="bg-[#f7f6f2] p-6 rounded-2xl border border-stone-200">${text.replace(/\n/g, '<br>')}</div>`;
                 } else if (data.error) {
                     outputContent.innerHTML = `<div class="p-4 bg-red-50 text-red-700 rounded-xl">خطأ تقني: ${data.error.message}</div>`;
                 } else {
