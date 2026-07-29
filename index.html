@@ -42,7 +42,6 @@
     
     .result-head{text-align:center;margin-bottom:28px}.result-head .mini{color:var(--gold);font-size:12px;font-weight:700}.result-head h2{font-family:"Noto Naskh Arabic";font-size:42px;margin:4px}
     
-    /* بطاقة الخلاصة الدعوية المطابقة لتعليمات البرومبت */
     .poster{max-width:600px;margin:0 auto 38px;background:linear-gradient(145deg,#173d32,#245646);color:#fff;border-radius:25px;padding:37px;position:relative;overflow:hidden;box-shadow:var(--shadow)}.poster:after{content:"";position:absolute;width:280px;height:280px;border:1px solid rgba(196,154,72,.28);border-radius:50%;left:-170px;bottom:-160px}.poster-label{font-size:11px;color:#e1c98e}.poster h3{font-family:"Noto Naskh Arabic";font-size:28px;margin:4px 0 18px;color:#fdfbf7}.poster ol{margin:0;padding-right:23px;font-size:14px;line-height:2}.poster li{margin-bottom:10px}
     
     .classification{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 22px;margin-bottom:25px;font-size:16px}.classification strong{color:var(--gold)}
@@ -118,29 +117,24 @@
       <small>متفق عليه</small>
     </section>
     
-    <!-- قسم النتائج المطابق لتعليمات البرومبت حرفياً -->
+    <!-- قسم النتائج -->
     <section class="result" id="result">
-      <!-- 1. خلاصة النيات المصورة (البطاقة الدعوية) أولاً -->
       <div class="poster">
         <div class="poster-label">سلسلة النيات مع بدري</div>
         <h3 id="posterTitle">خلاصة نيات العمل</h3>
         <ol id="posterList"></ol>
       </div>
 
-      <!-- 2. المقدمة الثابتة -->
       <div class="intro-box">
         أي عمل مباح إذا وافق الشرع وصحت النية فيه صار عبادة ويُرجى عليه الأجر. النية لا تُحوّل المعصية لطاعة ولا تُبيح الحرام. اجمع النيات مع إحسان العمل وترك الأذى وردّ الحقوق.
       </div>
 
-      <!-- 3. تصنيف الحكم -->
       <div class="classification">
         <strong>حكم العمل:</strong> <span id="rulingText">مباح في أصله، إذا صحت النية ووافق الشرع صار عبادة.</span>
       </div>
 
-      <!-- 4. النيات التفصيلية (7-12 نية) مع الشرح والتطبيق -->
       <div class="intent-list" id="intentList"></div>
 
-      <!-- 5. التطبيق العملي -->
       <div class="practice">
         <h3>🛠️ التطبيق العملي:</h3>
         <div class="practice-grid">
@@ -150,7 +144,6 @@
         </div>
       </div>
 
-      <!-- 6. الأسئلة الختامية والخاتمة الثابتة -->
       <div class="closing-section">
         <h4>أسئلة نافعة للمتابعة:</h4>
         <ul id="closingQuestions">
@@ -224,7 +217,6 @@
 </div>
 
 <script>
-  // قاعدة البيانات العميقة والمطابقة لمنهجية الـ Custom GPT بدقة شرعية عالية
   const expertDatabase = {
     'ماء': {
       ruling: 'مباح في أصله، ويُستحب استحصال النيات الصالحة ليكون عبادة مأجوراً عليها.',
@@ -235,7 +227,7 @@
         {t: 'استشعار أجر إحياء النفس وسقي الماء كصدقة جارية', q: 'قال النبي ﷺ: «أفضل الصدقة سقي الماء» [رواه أحمد وصححه الألباني]', d: 'استحضر بقلبك الرحمة بجميع الكائنات الحية.'},
         {t: 'حفظ الصحة والعافية لنشاط البدن في العبادة', q: 'قال النبي ﷺ: «المؤمن القوي خير وأحب إلى الله من المؤمن الضعيف» [مسلم]', d: 'استحضر بقلبك صيانة بدنك الذي أمانة عندك.'},
         {t: 'التواضع لله والانكسار عند الاحتياج لأبسط مقومات الحياة', q: 'قال تعالى: «يَا أَيُّهَا النَّاسُ أَنْتُمُ الْفُقَرَاءُ إِلَى اللَّهِ» [فاطر: 15]', d: 'استحضر بقلبك افتقارك التام لرب العالمين.'},
-        {t: 'استحضار عظمة الخالق في عذوبة الماء وسサイغه', q: 'قال تعالى: «أَفَرَأَيْتُمُ الْمَاءَ الَّذِي تَشْرَبُونَ ۝ أَنْتُمْ أَنْزَلْتُمُوهُ مِنَ الْمُزْنِ أَمْ نَحْنُ الْمُنْزِلُونَ ۝ لَوْ نَشَاءُ جَعَلْنَاهُ أُجَاجًا فَلَوْلَا تَشْكُرُونَ» [الواقعة: 68-70]', d: 'استحضر بقلبك التفكر في ملكوت الله.'}
+        {t: 'استحضار عظمة الخالق في عذوبة الماء وسسايغه', q: 'قال تعالى: «أَفَرَأَيْتُمُ الْمَاءَ الَّذِي تَشْرَبُونَ ۝ أَنْتُمْ أَنْزَلْتُمُوهُ مِنَ الْمُزْنِ أَمْ نَحْنُ الْمُنْزِلُونَ ۝ لَوْ نَشَاءُ جَعَلْنَاهُ أُجَاجًا فَلَوْلَا تَشْكُرُونَ» [الواقعة: 68-70]', d: 'استحضر بقلبك التفكر في ملكوت الله.'}
       ]
     },
     'عمل': {
@@ -293,7 +285,6 @@
       return;
     }
     
-    // البحث الذكي في بنك النيات الخبير
     let data = { ruling: 'مباح في أصله، إذا صحت النية ووافق الشرع صار عبادة.', intents: defaultExpertIntents };
     for (let keyword in expertDatabase) {
       if (value.includes(keyword) || keyword.includes(value)) {
@@ -302,16 +293,10 @@
       }
     }
     
-    document.getElementById('resultTitle').textContent = `نيات ${value}`;
     document.getElementById('posterTitle').textContent = `خلاصة نيات ${value}`;
-    
-    // 1. توليد قائمة الخلاصة المصورة داخل البطاقة الدعوية
     document.getElementById('posterList').innerHTML = data.intents.map(x => `<li>نية ${x.t}</li>`).join('');
-    
-    // 2. تحديث الحكم الشرعي
     document.getElementById('rulingText').textContent = data.ruling;
     
-    // 3. توليد النيات التفصيلية الكاملة مع التفاصيل والشرح
     document.getElementById('intentList').innerHTML = data.intents.map((x, i) => `
       <article class="intent">
         <h4>${['١','٢','٣','٤','٥','٦','٧','٨','٩','١٠'][i] || (i+1)}. نية ${x.t}</h4>
