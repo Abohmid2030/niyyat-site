@@ -8,12 +8,11 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'الرجاء إدخال العمل أو الموضوع' });
   }
 
-  const apiKey = process.env.OPENAI_API_KEY;
+  const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
-    return res.status(500).json({ error: 'مفتاح الـ API غير معرّف في إعدادات الخادم.' });
+    return res.status(500).json({ error: 'مفتاح الـ GEMINI_API_KEY غير معرّف في إعدادات الخادم.' });
   }
 
-  // البرومبت الأصلي والكامل الخاص بك محقون هنا بدقة متناهية
   const systemPrompt = `نظام معرفي دعوي–تربوي يحوّل الأعمال والأحوال إلى عبادة بالنية الصحيحة المنضبطة بالنص.
 الاسم: سلسلة النيات مع بدري – أن تحيا بنيّة.
 
@@ -26,20 +25,20 @@ export default async function handler(req, res) {
 - ممنوع استخدام كلمة: الدليل.
 - الالتزام التام بالعمق والدقة الشرعية العالية والشمولية تماماً مثل الـ Custom GPT.`;
 
+  const promptText = `${systemPrompt}\n\nالمطلوب استخراج النيات لهذا العمل بالتفصيل الكامل وحسب القواعد: ${topic}`;
+
   try {
-    const response = await fetch('https://api.openai.com/v1/chat/completions', {
+    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiKey}`
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        model: 'gpt-4o',
-        messages: [
-          { role: 'system', content: systemPrompt },
-          { role: 'user', content: `أريد استخراج النيات لهذا العمل بالتفصيل الكامل وحسب القواعد: ${topic}` }
-        ],
-        temperature: 0.3
+        contents: [
+          {
+            parts: [{ text: promptText }]
+          }
+        ]
       })
     });
 
@@ -48,7 +47,7 @@ export default async function handler(req, res) {
       return res.status(500).json({ error: data.error.message });
     }
 
-    const reply = data.choices[0].message.content;
+    const reply = data.candidates[0].content.parts[0].text;
     return res.status(200).json({ reply });
 
   } catch (err) {
