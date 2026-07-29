@@ -31,7 +31,6 @@
     
     .search-card{background:rgba(255,253,247,.92);border:1px solid #e5dbc3;border-radius:28px;padding:28px;box-shadow:var(--shadow);position:relative}.search-card:before{content:"";position:absolute;inset:10px;border:1px solid rgba(196,154,72,.18);border-radius:21px;pointer-events:none}.card-head{position:relative;margin-bottom:19px}.card-head span{font-size:12px;color:var(--gold);font-weight:700}.card-head h2{margin:2px 0;font-size:24px}.input-wrap{position:relative;z-index:1;background:white;border:1px solid var(--line);border-radius:17px;padding:7px;display:flex;gap:7px;transition:.2s}.input-wrap:focus-within{border-color:var(--gold);box-shadow:0 0 0 4px rgba(196,154,72,.1)}input{border:0;outline:0;background:transparent;padding:12px 15px;width:100%;font-family:inherit;font-size:14px;color:var(--ink)}button{border:0;font-family:inherit;cursor:pointer}.submit{background:var(--ink);color:white;border-radius:13px;padding:10px 19px;white-space:nowrap;font-weight:700}.submit:hover{background:var(--ink2)}.examples{position:relative;z-index:1;margin-top:14px;display:flex;align-items:center;gap:7px;flex-wrap:wrap;font-size:11px;color:var(--muted)}.chip{border:1px solid var(--line);background:#fffaf0;color:var(--ink2);padding:5px 10px;border-radius:40px;font-size:11px;cursor:pointer}.chip:hover{border-color:var(--gold)}
     
-    /* تنسيق شبكي متطابق تماماً للصورة المرفقة (2 عمود، وارتفاعات متناسقة) */
     .extra-sections {max-width: 1180px; margin: 0 auto 60px; padding: 0 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;}
     .column-side {display: flex; flex-direction: column; gap: 40px;}
     .info-box {background: rgba(255,253,247,.95); border: 1px solid #e5dbc3; border-radius: 28px; padding: 32px; box-shadow: var(--shadow);}
@@ -78,10 +77,10 @@
         </div>
         <div class="examples">
           <span>جرّب:</span>
+          <button type="button" class="chip">شرب الماء</button>
           <button type="button" class="chip">الذهاب إلى العمل</button>
           <button type="button" class="chip">طلب العلم</button>
           <button type="button" class="chip">النوم</button>
-          <button type="button" class="chip">زيارة الأهل</button>
         </div>
       </div>
     </section>
@@ -91,10 +90,10 @@
       <small>متفق عليه</small>
     </section>
     
-    <!-- قسم النتائج -->
+    <!-- قسم النتائج الذكية المتغيرة حسب العمل -->
     <section class="result" id="result">
       <div class="result-head">
-        <div class="mini">نتيجة إرشادية تجريبية</div>
+        <div class="mini">نتيجة إرشادية للمنصة</div>
         <h2 id="resultTitle">نيات العمل</h2>
       </div>
       <div class="poster">
@@ -114,18 +113,14 @@
       </div>
     </section>
 
-    <!-- الأقسام الإضافية مطابقة تماماً لتوزيع الصورة المرفقة (شبكة 2x2) -->
+    <!-- الأقسام الإضافية (شبكة 2x2) -->
     <div class="extra-sections" id="about-section">
-      
-      <!-- العمود الأيمن (الصف العلوي: ما هو نيات | الصف السفلي: لماذا يستحق الدعم) -->
       <div class="column-side">
-        <!-- مربع ما هو نيات؟ -->
         <div class="info-box">
           <h3 style="font-size: 22px; font-weight: 700; color: var(--ink); margin-top: 0; margin-bottom: 12px; text-align: right;">ما هو نيات؟</h3>
           <p style="color: var(--muted); font-size: 15px; line-height: 1.8; margin-bottom: 0; text-align: right;">هو مشروع يهدف إلى مساعدتك على استحضار النية الصالحة في تفاصيل حياتك اليومية من خلال محتوى موثق وتجربة استخدام بسيطة.</p>
         </div>
 
-        <!-- مربع لماذا يستحق الدعم؟ -->
         <div class="info-box" style="text-align: center;">
           <h3 style="font-size: 22px; font-weight: 700; color: var(--ink); margin-top: 0; margin-bottom: 12px;">لماذا يستحق الدعم؟</h3>
           <p style="color: var(--muted); font-size: 15px; line-height: 1.8; margin-bottom: 24px;">لأن كل مساهمة تساعد في إخراج هذا المشروع إلى النور، ليصل إلى أكبر عدد ممكن من الناس بإذن الله.</p>
@@ -133,9 +128,7 @@
         </div>
       </div>
 
-      <!-- العمود الأيسر (الصف العلوي: هل تعلم | الصف السفلي: ماذا ستجد داخل المنصة) -->
       <div class="column-side">
-        <!-- مربع هل تعلم والأعمال اليومية -->
         <div class="info-box">
           <h3 style="font-size: 18px; font-weight: 700; color: var(--ink); margin-top: 0; text-align: center; margin-bottom: 20px;">أن كثيرًا من الأعمال اليومية يمكن أن يؤجر عليها المسلم إذا صحت النية؟</h3>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
@@ -148,7 +141,6 @@
           <p style="text-align: center; font-weight: 700; color: var(--gold); margin-top: 15px; margin-bottom: 0;">كلها تبدأ من نية.</p>
         </div>
 
-        <!-- مربع ماذا ستجد داخل المنصة؟ -->
         <div class="info-box">
           <h3 style="font-size: 20px; font-weight: 700; color: var(--ink); margin-top: 0; text-align: center; margin-bottom: 20px;">ماذا ستجد داخل المنصة؟</h3>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; text-align: center; font-size: 13px;">
@@ -163,7 +155,7 @@
 
     </div>
 
-    <!-- المربع الداكن المنفصل: لماذا بدأنا نيات؟ (تحت ما هو نيات مباشرة كما في الصورة) -->
+    <!-- المربع الداكن المنفصل: لماذا بدأنا نيات؟ -->
     <div style="max-width: 1180px; margin: -20px auto 60px; padding: 0 28px;">
       <div style="background: var(--ink); color: white; border-radius: 28px; padding: 32px; text-align: center; box-shadow: var(--shadow); max-width: calc(50% - 20px); margin-right: 0;">
         <h3 style="font-size: 18px; color: #e1c98e; margin-top: 0; margin-bottom: 8px;">لماذا بدأنا نيات؟</h3>
@@ -179,15 +171,37 @@
 </div>
 
 <script>
-  const intents = [
-    {t:'ابتغاء مرضاة الله',q:'قال تعالى: «وَمَا أُمِرُوا إِلَّا لِيَعْبُدُوا اللَّهَ مُخْلِصِينَ لَهُ الدِّينَ» [البينة: 5]'},
+  // بنك نيات ذكي يتغير حسب العمل المكتوب
+  const specificIntents = {
+    'شرب الماء': [
+      {t: 'استشعار نعمة الري والارتواء وشكر الله عليها', q: 'قال تعالى: «أَفَرَأَيْتُمُ الْمَاءَ الَّذِي تَشْرَبُونَ» [الواقعة: 68]'},
+      {t: 'الاقتداء بسنة النبي ﷺ في آداب الشرب والبركة', q: 'قال النبي ﷺ: «إذا شرب أحدكم فلا يتنفس في الإناء» [صحيح البخاري]'},
+      {t: 'التقوي بالماء على طاعة الله ورسوله', q: 'قال تعالى: «وَجَعَلْنَا مِنَ الْمَاءِ كُلَّ شَيْءٍ حَيٍّ» [الأنبياء: 30]'},
+      {t: 'استشعار الصدقة في سقي الماء', q: 'قال النبي ﷺ: «وفي كل ذات كبد رطبة أجر» [متفق عليه]'}
+    ],
+    'النوم': [
+      {t: 'الاستعداد للعبادة والتقوي على صلاة الفجر', q: 'قال تعالى: «وَجَعَلْنَا نَوْمَكُمْ سُبَاتًا» [النبأ: 9]'},
+      {t: 'التوكل على الله وتسليم الروح له بذكر الاستيقاظ', q: 'كان النبي ﷺ إذا أخذ مضجعه قال: «باسمك اللهم أموت وأحيا» [البخاري]'},
+      {t: 'إراحة البدن لأداء الأمانة والمسؤولية في الغد', q: 'قال النبي ﷺ: «إن لجسدك عليك حقاً» [صحيح البخاري]'}
+    ],
+    'الذهاب إلى العمل': [
+      {t: 'ابتغاء الرق الحلال والاستغناء عن الحرام', q: 'قال تعالى: «فَامْشُوا فِي مَنَاكِبِهَا وَكُلُوا مِنْ رِزْقِهِ» [الملك: 15]'},
+      {t: 'إتقان العمل وإخلاصه كأمانة أمام الله', q: 'قال النبي ﷺ: «إن الله يحب إذا عمل أحدكم عملاً أن يتقنه» [بيهقي]'},
+      {t: 'إعانة الأهل وقضاء حوائج المسلمين', q: 'قال النبي ﷺ: «كفايته لعياله صدقة» [حديث صحيح]'}
+    ],
+    'طلب العلم': [
+      {t: 'ابتغاء وجه الله تعالى ونشر النفع', q: 'قال النبي ﷺ: «من سلك طريقاً يلتمس فيه علماً سهل الله له به طريقاً إلى الجنة» [مسلم]'},
+      {t: 'إزالة الجهل عن النفس وعن الأمة', q: 'قال تعالى: «هَل يستوي الذين يعلمون والذين لا يعلمون» [الزمر: 9]'}
+    ]
+  };
+
+  const defaultIntents = [
+    {t:'ابتغاء مرضاة الله والإخلاص له',q:'قال تعالى: «وَمَا أُمِرُوا إِلَّا لِيَعْبُدُوا اللَّهَ مُخْلِصِينَ لَهُ الدِّينَ» [البينة: 5]'},
     {t:'القيام بالمسؤولية وأداء الأمانة',q:'قال تعالى: «إِنَّ اللَّهَ يَأْمُرُكُمْ أَنْ تُؤَدُّوا الْأَمَانَاتِ إِلَى أَهْلِهَا» [النساء: 58]'},
     {t:'الإحسان والإتقان في العمل',q:'قال تعالى: «إِنَّ اللَّهَ يُحِبُّ الْمُحْسِنِينَ» [البقرة: 195]'},
     {t:'طلب الحلال والاستغناء عن الحرام',q:'قال تعالى: «وَأَحَلَّ اللَّهُ الْبَيْعَ وَحَرَّمَ الرِّبَا» [البقرة: 275]'},
     {t:'نفع الناس وقضاء حوائجهم',q:'قال تعالى: «وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَى» [المائدة: 2]'},
-    {t:'حفظ الوقت من الضياع',q:'قال تعالى: «وَالْعَصْرِ ۝ إِنَّ الْإِنْسَانَ لَفِي خُسْرٍ» [العصر: 1–2]'},
-    {t:'شكر نعمة القدرة والفرصة',q:'قال تعالى: «لَئِن شَكَرْتُمْ لَأَزِيدَنَّكُمْ» [إبراهيم: 7]'},
-    {t:'كف الأذى وحفظ حقوق الآخرين',q:'قال النبي ﷺ: «المسلم من سلم المسلمون من لسانه ويده» [صحيح البخاري: 10]'}
+    {t:'حفظ الوقت وشكر النعمة',q:'قال تعالى: «لَئِن شَكَرْتُمْ لَأَزِيدَنَّكُمْ» [إبراهيم: 7]'}
   ];
   
   const topicInput = document.getElementById('topic');
@@ -202,12 +216,21 @@
       return;
     }
     
+    // اختيار النيات المناسبة للعمل أو جلب القالب العام
+    let selectedIntents = defaultIntents;
+    for (let key in specificIntents) {
+      if (value.includes(key) || key.includes(value)) {
+        selectedIntents = specificIntents[key];
+        break;
+      }
+    }
+    
     document.getElementById('resultTitle').textContent = `نيات ${value}`;
     document.getElementById('posterTitle').textContent = `خلاصة نيات ${value}`;
     
-    document.getElementById('posterList').innerHTML = intents.map(x => `<li>${x.t}</li>`).join('');
+    document.getElementById('posterList').innerHTML = selectedIntents.map(x => `<li>${x.t}</li>`).join('');
     
-    document.getElementById('intentList').innerHTML = intents.map((x, i) => 
+    document.getElementById('intentList').innerHTML = selectedIntents.map((x, i) => 
       `<article class="intent"><h4>${['١','٢','٣','٤','٥','٦','٧','٨'][i]}. نية ${x.t}</h4><p>${x.q}</p></article>`
     ).join('');
     
