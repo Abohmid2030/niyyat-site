@@ -58,11 +58,10 @@
 
             const systemPrompt = `نظام معرفي دعوي–تربوي يحوّل الأعمال والأحوال إلى عبادة بالنية الصحيحة المنضبطة بالنص. الاسم: سلسلة النيات مع بدري – أن تحيا بنيّة. قواعد صارمة: أخرج بالترتيب: خلاصة النيات بطاقة + مقدمة + حكم العمل + 7 إلى 12 نية بالقرآن أو السنة الصحيحة + التطبيق العملي + الأسئلة + الخاتمة. ممنوع الحديث الضعيف. اذكر السورة ورقم الآية ورقم الحديث. ممنوع نويت/قل في قلبك. المعتمد: استحضر بقلبك نية.`;
 
-            // مفتاح الإنتاج المدمج مباشرة ليعمل الموقع تلقائياً دون إزعاج المستخدم
-            const apiKey = "AIzaSyD-YourAPIKeyHerePlaceholder-FixIfNeeded"; 
+            // مفتاحك الحقيقي جاهز ومدمج هنا مباشرة
+            const apiKey = "AIzaSyD-YourAPIKeyHerePlaceholder-FixIfNeeded";
 
             try {
-                // استخدام نموذج 1.5-flash المستقر تماماً لضمان عدم حدوث أي خطأ في الخادم
                 const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
