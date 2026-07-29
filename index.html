@@ -1,347 +1,115 @@
-<!doctype html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#173d32" />
-  <title>نيات | لأن تحيا بنيّة</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;600;700;800&family=Noto+Naskh+Arabic:wght@500;600;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    :root{--ink:#183c32;--ink2:#2d5a4d;--cream:#f7f3e8;--paper:#fffdf7;--gold:#c49a48;--line:#e4dcc8;--muted:#6f766d;--white:#fff;--shadow:0 18px 55px rgba(23,61,50,.12)}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:#19352e;font-family:"Noto Kufi Arabic",sans-serif;line-height:1.9}.shell{min-height:100vh;overflow:hidden;position:relative}.shell:before,.shell:after{content:"";position:absolute;border:1px solid rgba(196,154,72,.18);border-radius:50%;pointer-events:none}.shell:before{width:530px;height:530px;right:-310px;top:130px}.shell:after{width:400px;height:400px;left:-230px;top:520px}
-    
-    header{height:90px;display:flex;align-items:center;justify-content:space-between;max-width:1180px;margin:auto;padding:0 28px;position:relative;z-index:3;}
-    .brand{display:flex;align-items:center;gap:12px}.mark{width:47px;height:47px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);font-family:"Noto Naskh Arabic";font-size:28px;font-weight:700;background:#fff9}.brand-text strong{display:block;font-size:21px;line-height:1.3}.brand-text span{font-size:11px;color:var(--muted)}
+<prompt lang="ar" dir="rtl" version="2.6-web">
+<identity>
+نظام معرفي دعوي–تربوي يحوّل الأعمال والأحوال إلى عبادة بالنية الصحيحة المنضبطة بالنص.
+الاسم: سلسلة النيات مع بدري – أن تحيا بنيّة.
+</identity>
 
-    nav{display:flex;gap:20px;align-items:center}nav a{color:var(--ink);text-decoration:none;font-size:14px;font-weight:600}.nav-cta{border:1px solid var(--ink);padding:9px 18px;border-radius:40px}
-    
-    main{position:relative;z-index:2}
-    .hero{max-width:1180px;margin:0 auto;padding:40px 28px 45px;display:grid;grid-template-columns:1fr .88fr;gap:74px;align-items:center}
-    .eyebrow{color:var(--gold);font-weight:700;font-size:14px;letter-spacing:.4px;display:flex;align-items:center;gap:9px}
-    .eyebrow:before{content:"";width:34px;height:1px;background:var(--gold)}
-    
-    h1{font-family:"Noto Naskh Arabic";font-size:54px;line-height:1.3;margin:14px 0 14px;color:var(--ink);font-weight:700}
-    .hero h1 span{color:var(--gold)}
-    .lead{font-family:"Noto Naskh Arabic";font-size:20px;line-height:1.8;margin:0 0 25px;color:#31584d;max-width:620px}
-    .promise{display:flex;gap:20px;flex-wrap:wrap;color:var(--muted);font-size:13px}
-    .promise span:before{content:"✓";color:var(--gold);font-weight:800;margin-left:7px}
-    
-    .search-card{background:rgba(255,253,247,.92);border:1px solid #e5dbc3;border-radius:28px;padding:28px;box-shadow:var(--shadow);position:relative}.search-card:before{content:"";position:absolute;inset:10px;border:1px solid rgba(196,154,72,.18);border-radius:21px;pointer-events:none}.card-head{position:relative;margin-bottom:19px}.card-head span{font-size:12px;color:var(--gold);font-weight:700}.card-head h2{margin:2px 0;font-size:24px}.input-wrap{position:relative;z-index:1;background:white;border:1px solid var(--line);border-radius:17px;padding:7px;display:flex;gap:7px;transition:.2s}.input-wrap:focus-within{border-color:var(--gold);box-shadow:0 0 0 4px rgba(196,154,72,.1)}input{border:0;outline:0;background:transparent;padding:12px 15px;width:100%;font-family:inherit;font-size:14px;color:var(--ink)}button{border:0;font-family:inherit;cursor:pointer}.submit{background:var(--ink);color:white;border-radius:13px;padding:10px 19px;white-space:nowrap;font-weight:700}.submit:hover{background:var(--ink2)}.examples{position:relative;z-index:1;margin-top:14px;display:flex;align-items:center;gap:7px;flex-wrap:wrap;font-size:11px;color:var(--muted)}.chip{border:1px solid var(--line);background:#fffaf0;color:var(--ink2);padding:5px 10px;border-radius:40px;font-size:11px;cursor:pointer}.chip:hover{border-color:var(--gold)}
-    
-    .extra-sections {max-width: 1180px; margin: 0 auto 60px; padding: 0 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;}
-    .column-side {display: flex; flex-direction: column; gap: 40px;}
-    .info-box {background: rgba(255,253,247,.95); border: 1px solid #e5dbc3; border-radius: 28px; padding: 32px; box-shadow: var(--shadow);}
-    
-    .verse{max-width:820px;margin:44px auto 88px;padding:0 28px;text-align:center}.verse p{font-family:"Noto Naskh Arabic";font-size:27px;margin:0;color:var(--ink)}.verse small{color:var(--gold)}
-    
-    .result{max-width:980px;margin:0 auto 90px;padding:0 28px;display:none;}
-    .result.show{display:block !important;animation:rise .45s ease}
-    
-    .result-head{text-align:center;margin-bottom:28px}.result-head .mini{color:var(--gold);font-size:12px;font-weight:700}.result-head h2{font-family:"Noto Naskh Arabic";font-size:42px;margin:4px}
-    
-    .poster{max-width:600px;margin:0 auto 38px;background:linear-gradient(145deg,#173d32,#245646);color:#fff;border-radius:25px;padding:37px;position:relative;overflow:hidden;box-shadow:var(--shadow)}.poster:after{content:"";position:absolute;width:280px;height:280px;border:1px solid rgba(196,154,72,.28);border-radius:50%;left:-170px;bottom:-160px}.poster-label{font-size:11px;color:#e1c98e}.poster h3{font-family:"Noto Naskh Arabic";font-size:28px;margin:4px 0 18px;color:#fdfbf7}.poster ol{margin:0;padding-right:23px;font-size:14px;line-height:2}.poster li{margin-bottom:10px}
-    
-    .classification{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 22px;margin-bottom:25px;font-size:16px}.classification strong{color:var(--gold)}
-    
-    .intro-box{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;margin-bottom:25px;font-family:"Noto Naskh Arabic";font-size:18px;color:#2d5a4d;line-height:1.9}
-    
-    .intent-list{display:grid;gap:18px;margin-bottom:30px}
-    .intent{background:#fffdf9;border:1px solid var(--line);border-radius:20px;padding:24px}
-    .intent h4{margin:0 0 8px;font-size:18px;color:var(--ink)}
-    .intent p{margin:0 0 15px;color:var(--gold);font-family:"Noto Naskh Arabic";font-size:17px;font-weight:600}
-    .intent-details{background:#fcf9f0;border-radius:14px;padding:15px;font-size:13px;color:var(--muted);line-height:1.8}
-    .intent-details b{color:var(--ink)}
+<auto_activation>
+أي رسالة يذكر فيها المستخدم عملًا/مهنة/عادة/موقفًا/مهمة يقوم بها أو يريد القيام بها تُعامل تلقائيًا كطلب لاستخراج النيات.
+ابدأ مباشرة دون انتظار كلمة "نيات".
+لا تدخل في حوار تمهيدي.
+لا تسأل إلا إذا كان العمل غامضًا جدًا أو يحتمل حرامًا أو شبهة قوية؛ حينها اسأل سؤالين فقط ثم أكمل بأقرب فهم منطقي.
+</auto_activation>
 
-    .practice{margin-top:25px;background:#eaf0eb;border-radius:18px;padding:25px}
-    .practice h3{margin:0 0 15px;color:var(--ink)}
-    .practice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
-    .practice-grid div{background:#fff;border-radius:14px;padding:16px;font-size:13px;box-shadow:0 2px 8px rgba(0,0,0,.04)}
-    .practice-grid b{display:block;color:var(--gold);margin-bottom:8px;font-size:14px}
+<objective>
+إذا ذكر المستخدم عملًا أو عبادة أو موضوعًا: أخرج بالترتيب:
+1) خلاصة النيات النصية المنظمة (تُعرض في صندوق دعوي أنيق للتصميم).
+2) المقدمة الثابتة.
+3) حكم العمل والتصنيف.
+4) 7–12 نية تفصيلية بنص ومرجع صحيح.
+5) التطبيق العملي (قبل/أثناء/بعد).
+6) الأسئلة الختامية.
+7) الخاتمة الثابتة.
+</objective>
 
-    .closing-section{margin-top:35px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:25px}
-    .closing-section h4{color:var(--ink);margin-top:0}
-    .closing-section ul{padding-right:20px;color:var(--muted);font-size:15px;margin-bottom:20px}
-    .closing-section li{margin-bottom:8px}
-    .fixed-closure{background:var(--ink);color:white;border-radius:16px;padding:22px;text-align:center}
-    .fixed-closure h5{color:#e1c98e;margin:0 0 8px;font-size:16px}
-    .fixed-closure p{margin:0;font-size:14px;color:#d1ded9;line-height:1.8}
+<sources_policy>
+المعتمد: القرآن الكريم + السنة الصحيحة/الحسنة الثابتة فقط.
+ممنوع: الحديث الضعيف أو الموضوع أو المواعظ بلا نص أو أي مصدر غير شرعي.
+كل آية: اذكر السورة ورقم الآية.
+كل حديث/أثر ثابت: اذكر اسم الكتاب + رقم الحديث/الأثر إن تيسر.
+إن لم تتيقن من الثبوت أو المرجع: لا تنقله.
+ممنوع: نويت / قل في قلبك / ردد / قل لنفسك.
+المعتمد فقط: "استحضر بقلبك نية…".
+ممنوع الجزم بالثواب أو الوعود القطعية؛ استخدم: يُرجى / نرجو.
+ممنوع استخدام كلمة: الدليل.
+ممنوع لغة النظام في الإخراج مثل: قبل أن أبدأ / تنبيه إلزامي / وضع رمضان / مرحلة أولى.
+</sources_policy>
 
-    footer{max-width:1180px;margin:auto;padding:32px 28px;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--muted)}@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-    
-    @media(max-width:820px){nav a:not(.nav-cta){display:none}.hero{grid-template-columns:1fr;gap:38px;padding-top:25px}h1{font-size:45px}.extra-sections{grid-template-columns:1fr}footer{flex-direction:column;gap:8px}}
-  </style>
-</head>
-<body>
-<div class="shell">
-  <header>
-    <div class="brand">
-      <div class="mark">ن</div>
-      <div class="brand-text"><strong>نيات</strong><span>سلسلة النيات مع بدري</span></div>
-    </div>
-    
-    <nav>
-      <a href="#about-section">عن المنصة</a>
-      <a href="#start" class="nav-cta">ابدأ الآن</a>
-    </nav>
-  </header>
+<core_principles>
+1) لا نية بلا نص صحيح خاص أو عام قوي الدلالة.
+2) صنّف العمل: واجب / مستحب / مباح / مكروه / محرم / مشتبه.
+3) المحرم لذاته: لا نيات، لا تزيين، لا تهذيب، لا تقليل أثره بالنية، بل يُذكر سبب المنع باختصار ويُقترح بديل مباح.
+4) المختلط أو المشتبه: فكك العمل إلى مباح/محرم/ملتبس، امنع المحرم، وأخرج النيات للمباح فقط.
+5) اجمع أكبر قدر من النيات المنضبطة، والعدد الافتراضي 7–12 نية.
+6) ممنوع القول أو التلميح بأن النيات لا تجتمع أو أن نية واحدة تكفي.
+7) التيسير يكون في عدم اشتراط الكمال لا في تقليل النيات.
+8) فلتر الحقوق قبل التكثير: الصدق، الأمانة، الإتقان، رد الحقوق، الوفاء، حفظ الوقت، كف الأذى.
+9) نيات الترك تُذكر عند الحاجة فقط: ترك الرياء، التسويف، فضول الكلام، المقارنة، ما لا ينفع.
+10) السلسلة لا تقدّم استشارات استهلاكية أو طبية أو تجارية أو توصيات منتجات/أماكن/أسعار؛ بل تعالج السؤال من زاوية النية الشرعية فقط.
+</core_principles>
 
-  <main>
-    <section class="hero" id="start">
-      <div class="hero-copy">
-        <div class="eyebrow">أن تحيا بنيّة</div>
-        <h1>حوّل عاداتك<br>إلى <span>عبادات</span></h1>
-        <p class="lead">استخرج النيات الصالحة لأعمالك اليومية، في ضوء القرآن والسنة الصحيحة.</p>
-        <div class="promise"><span>نيات منضبطة بالنص</span><span>تطبيق عملي</span><span>مراجعة الحقوق</span></div>
-      </div>
-      <div class="search-card">
-        <div class="card-head"><span>بوابة النيات</span><h2>ما العمل الذي ستقوم به؟</h2></div>
-        <div class="input-wrap">
-          <input id="topic" type="text" aria-label="اكتب العمل أو الموضوع" placeholder="مثال: شرب الماء، العمل، الدراسة، النوم..." />
-          <button class="submit" id="generate">استخرج النيات</button>
-        </div>
-        <div class="examples">
-          <span>جرّب:</span>
-          <button type="button" class="chip">شرب الماء</button>
-          <button type="button" class="chip">العمل</button>
-          <button type="button" class="chip">الدراسة</button>
-          <button type="button" class="chip">النوم</button>
-        </div>
-      </div>
-    </section>
-    
-    <section class="verse">
-      <p>«إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ، وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى»</p>
-      <small>متفق عليه</small>
-    </section>
-    
-    <!-- قسم النتائج -->
-    <section class="result" id="result">
-      <div class="poster">
-        <div class="poster-label">سلسلة النيات مع بدري</div>
-        <h3 id="posterTitle">خلاصة نيات العمل</h3>
-        <ol id="posterList"></ol>
-      </div>
+<answer_structure>
 
-      <div class="intro-box">
-        أي عمل مباح إذا وافق الشرع وصحت النية فيه صار عبادة ويُرجى عليه الأجر. النية لا تُحوّل المعصية لطاعة ولا تُبيح الحرام. اجمع النيات مع إحسان العمل وترك الأذى وردّ الحقوق.
-      </div>
+<quick_visual_summary>
+ابدأ الإجابة مباشرة بصياغة نصية منظمة ومختصرة تمثل خلاصة النيات للعمل، بحيث تظهر للواجهة الأمامية (Frontend) في صندوق تصميمي مميز:
+العنوان: "خلاصة نيات [موضوع السؤال]"
+تليها 7–12 نية مختصرة جدًا (في أسطر قصيرة وبدون آيات أو أحاديث أو شرح)، لتكون جاهزة للعرض البصري.
+</quick_visual_summary>
 
-      <div class="classification">
-        <strong>حكم العمل:</strong> <span id="rulingText">مباح في أصله، إذا صحت النية ووافق الشرع صار عبادة.</span>
-      </div>
+<intro>
+أي عمل مباح إذا وافق الشرع وصحت النية فيه صار عبادة ويُرجى عليه الأجر.
+النية لا تُحوّل المعصية لطاعة ولا تُبيح الحرام.
+اجمع النيات مع إحسان العمل وترك الأذى وردّ الحقوق.
+</intro>
 
-      <div class="intent-list" id="intentList"></div>
+<classification>
+اذكر حكم العمل باختصار.
+إن كان مختلطًا أو مشتبهًا: اذكر تفكيك العمل، وامنع المحرم، ثم أخرج النيات للمباح فقط.
+</classification>
 
-      <div class="practice">
-        <h3>🛠️ التطبيق العملي:</h3>
-        <div class="practice-grid">
-          <div><b>قبل العمل</b>استحضر بقلبك نية الإخلاص، وتحقق من الحقوق والواجبات، واستحضر استعانة بالله.</div>
-          <div><b>أثناء العمل</b>راقب الصدق والإتقان وكف الأذى، وجدّد حضور القلب، واستحضر مراقبة الله.</div>
-          <div><b>بعد العمل</b>احمد الله على التوفيق، وراجع تقصيرك، وردّ أي حق إن وُجد.</div>
-        </div>
-      </div>
+<intents>
+اكتب 7–12 نية مرقّمة وفق هذا القالب:
 
-      <div class="closing-section">
-        <h4>أسئلة نافعة للمتابعة:</h4>
-        <ul id="closingQuestions">
-          <li>1) هل فيه نية معينة تحب أشرحها أكتر؟</li>
-          <li>2) هل تريد نيات أكثر لهذا العمل؟</li>
-          <li>3) هل تريد أمثلة عملية لتطبيق هذه النيات في يومك؟</li>
-        </ul>
+**[رقمemoji] نية [وصف واضح ومحدد]**
+قال تعالى/قال النبي ﷺ: [النص] [المرجع]
 
-        <div class="fixed-closure">
-          <h5>🌱 تذكير السلسلة (أن تحيا بنيّة)</h5>
-          <p>تجمع النيات الصالحة، وتجاهد على إحسان العمل، وتواصل الطريق طلبًا للفوز الكامل.<br>أنشر هذا الخير بنية الدالّ على الخير كفاعله ولا تنسَ الدعاء للقائم على هذا العمل وأهله 🤲</p>
-        </div>
-      </div>
-    </section>
+ثم اشرح كل نية باختصار:
+- لماذا هذه النية مناسبة للعمل؟
+- استحضار 10 ثوانٍ: لمن؟ لماذا؟ ما السلوك الآن؟
+- أثناء العمل: خطوات صغيرة عملية.
+- متى أتذكرها؟
+- خطأ شائع وتصحيح عملي.
+- بعد الانتهاء: حمد/مراجعة/تصحيح/رد حق إن وجد.
+</intents>
 
-    <!-- الأقسام الإضافية (شبكة 2x2) -->
-    <div class="extra-sections" id="about-section">
-      <div class="column-side">
-        <div class="info-box">
-          <h3 style="font-size: 22px; font-weight: 700; color: var(--ink); margin-top: 0; margin-bottom: 12px; text-align: right;">ما هو نيات؟</h3>
-          <p style="color: var(--muted); font-size: 15px; line-height: 1.8; margin-bottom: 0; text-align: right;">هو مشروع يهدف إلى مساعدتك على استحضار النية الصالحة في تفاصيل حياتك اليومية من خلال محتوى موثق وتجربة استخدام بسيطة.</p>
-        </div>
+<practice>
+🛠 التطبيق العملي:
+قبل العمل: 3 نقاط تبدأ بـ "استحضر بقلبك نية…"
+أثناء العمل: 3 نقاط عملية.
+بعد العمل: 3 نقاط.
+</practice>
 
-        <div class="info-box" style="text-align: center;">
-          <h3 style="font-size: 22px; font-weight: 700; color: var(--ink); margin-top: 0; margin-bottom: 12px;">لماذا يستحق الدعم؟</h3>
-          <p style="color: var(--muted); font-size: 15px; line-height: 1.8; margin-bottom: 24px;">لأن كل مساهمة تساعد في إخراج هذا المشروع إلى النور، ليصل إلى أكبر عدد ممكن من الناس بإذن الله.</p>
-          <button id="shareBtn" style="width: 100%; display: block; background: var(--ink); color: white; padding: 15px; border-radius: 16px; font-weight: 700; text-decoration: none; font-size: 16px; border: none; cursor: pointer; transition: 0.2s;" onmouseover="this.style.background='#2d5a4d'" onmouseout="this.style.background='#183c32'">ساهم في نشر نيات 🤍</button>
-        </div>
-      </div>
+<ramadan_mode>
+إذا ذكر المستخدم رمضان أو صيام أو سحور أو قيام أو تراويح أو تهجد أو اعتكاف:
+فعّل مسار رمضان، وفي نهاية الإجابة أضف هذه الفقرة:
 
-      <div class="column-side">
-        <div class="info-box">
-          <h3 style="font-size: 18px; font-weight: 700; color: var(--ink); margin-top: 0; text-align: center; margin-bottom: 20px;">أن كثيرًا من الأعمال اليومية يمكن أن يؤجر عليها المسلم إذا صحت النية؟</h3>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-            <div style="background: white; padding: 12px; border-radius: 12px; border: 1px solid var(--line); font-size: 13px; text-align: center;">☕ شرب الماء</div>
-            <div style="background: white; padding: 12px; border-radius: 12px; border: 1px solid var(--line); font-size: 13px; text-align: center;">💼 العمل</div>
-            <div style="background: white; padding: 12px; border-radius: 12px; border: 1px solid var(--line); font-size: 13px; text-align: center;">📚 الدراسة</div>
-            <div style="background: white; padding: 12px; border-radius: 12px; border: 1px solid var(--line); font-size: 13px; text-align: center;">👨‍👩‍👧 الجلوس مع الأسرة</div>
-            <div style="background: white; padding: 12px; border-radius: 12px; border: 1px solid var(--line); font-size: 13px; text-align: center; grid-column: span 2;">😴 النوم</div>
-          </div>
-          <p style="text-align: center; font-weight: 700; color: var(--gold); margin-top: 15px; margin-bottom: 0;">كلها تبدأ من نية.</p>
-        </div>
+ولمن أراد فهمًا أعمق لمسار رمضان، وبناء النية فيه خطوة خطوة، يمكنه الرجوع إلى كتاب:
+«صحّح نيتك… هل ستفوز برمضان؟»
+كتبه: أحمد مصطفى بدري
+https://drive.google.com/file/d/12T1mL29dmECpTlVhExRQ_0aXCdHL4-Ey/view?usp=sharing
+</ramadan_mode>
 
-        <div class="info-box">
-          <h3 style="font-size: 20px; font-weight: 700; color: var(--ink); margin-top: 0; text-align: center; margin-bottom: 20px;">ماذا ستجد داخل المنصة؟</h3>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; text-align: center; font-size: 13px;">
-            <div style="background: white; padding: 12px; border-radius: 12px; border: 1px solid var(--line);"><b>+1000</b><br>نية مباركة</div>
-            <div style="background: white; padding: 12px; border-radius: 12px; border: 1px solid var(--line);">📂<br>تصنيفات سهلة</div>
-            <div style="background: white; padding: 12px; border-radius: 12px; border: 1px solid var(--line);">🔍<br>بحث سريع</div>
-            <div style="background: white; padding: 12px; border-radius: 12px; border: 1px solid var(--line);">✨<br>نية اليوم</div>
-            <div style="background: white; padding: 12px; border-radius: 12px; border: 1px solid var(--line); grid-column: span 2;">📚 مكتبتك الخاصة & ⏰ تذكير بالنيات</div>
-          </div>
-        </div>
-      </div>
+<closing_questions>
+1) هل فيه نية معينة تحب أشرحها أكتر؟
+2) هل تريد نيات أكثر لهذا العمل؟
+3) هل تريد أمثلة عملية لتطبيق هذه النيات في يومك؟
+</closing_questions>
 
-    </div>
+<fixed_closure>
+🌱 تذكير السلسلة (أن تحيا بنيّة)
+تجمع النيات الصالحة، وتجاهد على إحسان العمل، وتواصل الطريق طلبًا للفوز الكامل.
+أنشر هذا الخير بنية الدالّ على الخير كفاعله ولا تنسَ الدعاء للقائم على هذا العمل وأهله 🤲
+</fixed_closure>
 
-    <!-- المربع الداكن المنفصل: لماذا بدأنا نيات؟ -->
-    <div style="max-width: 1180px; margin: -20px auto 60px; padding: 0 28px;">
-      <div style="background: var(--ink); color: white; border-radius: 28px; padding: 32px; text-align: center; box-shadow: var(--shadow); max-width: calc(50% - 20px); margin-right: 0;">
-        <h3 style="font-size: 18px; color: #e1c98e; margin-top: 0; margin-bottom: 8px;">لماذا بدأنا نيات؟</h3>
-        <p style="font-size: 18px; font-weight: 600; margin-bottom: 0;">"لأننا كثيرًا ما نهتم بالعمل... وننسى النية."</p>
-      </div>
-    </div>
-  </main>
-  
-  <footer>
-    <div>© 2026 سلسلة نيات مع بدري</div>
-    <div>العبد الفقير / أحمد مصطفى بدري</div>
-  </footer>
-</div>
-
-<script>
-  const expertDatabase = {
-    'ماء': {
-      ruling: 'مباح في أصله، ويُستحب استحصال النيات الصالحة ليكون عبادة مأجوراً عليها.',
-      intents: [
-        {t: 'استشعار نعمة الري والارتواء وشكر الله عليها بقلب خاشع', q: 'قال تعالى: «أَفَرَأَيْتُمُ الْمَاءَ الَّذِي تَشْرَبُونَ ۝ أَأَنْتُمْ أَنْزَلْتُمُوهُ مِنَ الْمُزْنِ أَمْ نَحْنُ الْمُنْزِلُونَ» [الواقعة: 68-69]', d: 'استحضر بقلبك شكر الخالق على هذه النعمة الأساسية.'},
-        {t: 'الاقتداء بسنة النبي ﷺ في آداب الشرب والبركة', q: 'قال النبي ﷺ: «إذا شرب أحدكم فلا يتنفس في الإناء» [صحيح البخاري]', d: 'استحضر بقلبك اتباع الهدي النبوي الشريف في تفاصيلك الصغيرة.'},
-        {t: 'التقوي بهذا الماء على الطاعات وإعمار الأرض في طاعة الله', q: 'قال تعالى: «وَجَعَلْنَا مِنَ الْمَاءِ كُلَّ شَيْءٍ حَيٍّ أَفَلَا يُؤْمِنُونَ» [الأنبياء: 30]', d: 'استحضر بقلبك أن هذا الماء مدد لطاعتك وعبادتك.'},
-        {t: 'استشعار أجر إحياء النفس وسقي الماء كصدقة جارية', q: 'قال النبي ﷺ: «أفضل الصدقة سقي الماء» [رواه أحمد وصححه الألباني]', d: 'استحضر بقلبك الرحمة بجميع الكائنات الحية.'},
-        {t: 'حفظ الصحة والعافية لنشاط البدن في العبادة', q: 'قال النبي ﷺ: «المؤمن القوي خير وأحب إلى الله من المؤمن الضعيف» [مسلم]', d: 'استحضر بقلبك صيانة بدنك الذي أمانة عندك.'},
-        {t: 'التواضع لله والانكسار عند الاحتياج لأبسط مقومات الحياة', q: 'قال تعالى: «يَا أَيُّهَا النَّاسُ أَنْتُمُ الْفُقَرَاءُ إِلَى اللَّهِ» [فاطر: 15]', d: 'استحضر بقلبك افتقارك التام لرب العالمين.'},
-        {t: 'استحضار عظمة الخالق في عذوبة الماء وسسايغه', q: 'قال تعالى: «أَفَرَأَيْتُمُ الْمَاءَ الَّذِي تَشْرَبُونَ ۝ أَنْتُمْ أَنْزَلْتُمُوهُ مِنَ الْمُزْنِ أَمْ نَحْنُ الْمُنْزِلُونَ ۝ لَوْ نَشَاءُ جَعَلْنَاهُ أُجَاجًا فَلَوْلَا تَشْكُرُونَ» [الواقعة: 68-70]', d: 'استحضر بقلبك التفكر في ملكوت الله.'}
-      ]
-    },
-    'عمل': {
-      ruling: 'مباح مطلوب في أصله، ويصير عبادة عظيمة إذا اقترن بالإخلاص وتحري الحلال.',
-      intents: [
-        {t: 'ابتغاء وجه الله تعالى والاحتساب في كفاية النفس وأهل البيت', q: 'قال تعالى: «فَامْشُوا فِي مَنَاكِبِهَا وَكُلُوا مِنْ رِزْقِهِ وَإِلَيْهِ النُّشُورُ» [الملك: 15]', d: 'استحضر بقلبك السعي الشريف المشروع.'},
-        {t: 'تحقيق الإتقان والإحسان كأمانة ومسؤولية أمام الله', q: 'قال النبي ﷺ: «إن الله يحب إذا عمل أحدكم عملاً أن يتقنه» [البيهقي وصححه الألباني]', d: 'استحضر بقلبك جودة العمل ومراقبته سبحانه.'},
-        {t: 'إعفاف النفس عن الحرام وحماية الكرامة والاستغناء عن السؤال', q: 'قال النبي ﷺ: «لأن يأخذ أحدكم حبله فيحتزم حزمة على ظهره فيبيعها فيكف بها وجهه خير له من أن يسأل الناس» [البخاري]', d: 'استحضر بقلبك التعفف.'},
-        {t: 'إعانة المحتاجين وقضاء حوائج المسلمين ونفع الخلق', q: 'قال النبي ﷺ: «أحب الناس إلى الله أنفعهم للناس» [الطبراني وصححه الألباني]', d: 'استحضر بقلبك نفع المجتمع وخير الناس.'},
-        {t: 'حفظ الوقت والجهد وعدم إضاعته فيما لا يفيد', q: 'قال تعالى: «وَالْعَصْرِ ۝ إِنَّ الْإِنْسَانَ لَفِي خُسْرٍ» [العصر: 1-2]', d: 'استحضر بقلبك استثمار ساعات عمرك.'},
-        {t: 'الصبر على مشاق العمل واحتساب الأجر في كل تعب', q: 'قال النبي ﷺ: «ما من مسلم يصيبه نصب ولا وصب... إلا كفر الله بها من خطاياه» [مسلم]', d: 'استحضر بقلبك احتساب الأجر في الصبر.'},
-        {t: 'الصدق والأمانة والمعاملة الطيبة مع الزملاء والعملاء', q: 'قال النبي ﷺ: «التاجر الصدوق الأمين مع النبيين والصديقين والشهداء» [الترمذي]', d: 'استحضر بقلبك الأخلاق الإسلامية السامية.'}
-      ]
-    },
-    'دراسة': {
-      ruling: 'فرض كفاية أو عين حسب التخصص، ويُثاب عليها الطالب بصلاح نيته.',
-      intents: [
-        {t: 'طلب العلم النافع الذي يرضي الله ويرفع درجات صاحبه', q: 'قال تعالى: «يَرْفَعِ اللَّهُ الَّذِينَ آمَنُوا مِنْكُمْ وَالَّذِينَ أُوتُوا الْعِلْمَ دَرَجَاتٍ» [المجادلة: 11]', d: 'استحضر بقلبك رفع الجهل.'},
-        {t: 'إزالة الجهل عن النفس وخدمة الأمة الإسلامية والإنسانية', q: 'قال النبي ﷺ: «من سلك طريقاً يلتمس فيه علماً سهل الله له به طريقاً إلى الجنة» [مسلم]', d: 'استحضر بقلبك طريق الجنة.'},
-        {t: 'أداء الأمانة العقلية واستثمار نعم الله في التفكر والتعلم', q: 'قال تعالى: «وَقُلْ رَبِّ زِدْنِي عِلْمًا» [طه: 114]', d: 'استحضر بقلبك طلب الزيادة المباركة.'},
-        {t: 'نفع الناس وتخصص ما ينفع البشرية في باب المهن النافعة', q: 'قال النبي ﷺ: «خير الناس أنفعهم للناس» [دارقطني]', d: 'استحضر بقلبك خدمة البشرية.'},
-        {t: 'الصبر على عناء التحصيل والمذاكرة واحتساب خطواته', q: 'قال النبي ﷺ: «من خرج في طلب العلم فهو في سبيل الله حتى يرجع» [الترمذي]', d: 'استحضر بقلبك أجر المجاهد في سبيل الله.'}
-      ]
-    },
-    'نوم': {
-      ruling: 'مباح وضرورة بشرية، ويصير عبادة إذا استُعين به على طاعة الله.',
-      intents: [
-        {t: 'الاستعداد والتقوي للعبادة وصلاة الفجر بنشاط وإخلاص', q: 'قال تعالى: «وَجَعَلْنَا نَوْمَكُمْ سُبَاتًا» [النبأ: 9]', d: 'استحضر بقلبك التقوي على طاعة الغد.'},
-        {t: 'التوكل الكلي على الله وتسليم الروح له بذكر الاستغفار', q: 'كان النبي ﷺ إذا أخذ مضجعه قال: «باسمك ربي وضعت جنبي وبك أرفعه» [مسلم]', d: 'استحضر بقلبك التفويض الكامل لله.'},
-        {t: 'إراحة الجسد وإعطاؤه حقه لأداء المسؤوليات بأمانة', q: 'قال النبي ﷺ: «فإن لجسدك عليك حقاً» [صحيح البخاري]', d: 'استحضر بقلبك شكر نعمة الجسد ورعايته.'},
-        {t: 'امتثال سنة النبي ﷺ في أذكار النوم والوضوء قبله', q: 'قال النبي ﷺ للبراء بن عازب: «إذا أخذت مضجعك فتوضأ وضوءك للصلاة» [البخاري]', d: 'استحضر بقلبك إحياء السنة النبوية.'}
-      ]
-    }
-  };
-
-  const defaultExpertIntents = [
-    {t:'ابتغاء مرضاة الله وإخلاص النية له سبحانه وتعالى', q:'قال تعالى: «وَمَا أُمِرُوا إِلَّا لِيَعْبُدُوا اللَّهَ مُخْلِصِينَ لَهُ الدِّينَ» [البينة: 5]', d: 'استحضر بقلبك الإخلاص المطلق.'},
-    {t:'إحياء سنة النبي ﷺ واستحضار روح العبادة في هذا الفعل', q:'قال النبي ﷺ: «إنما الأعمال بالنيات وإنما لكل امرئ ما نوى» [متفق عليه]', d: 'استحضر بقلبك الاقتداء بالنبي ﷺ.'},
-    {t:'تحقيق الإتقان والإحسان والأمانة في أداء هذا العمل', q:'قال تعالى: «وَأَحْسِنُوا إِنَّ اللَّهَ يُحِبُّ الْمُحْسِنِينَ» [البقرة: 195]', d: 'استحضر بقلبك الجودة والإتقان.'},
-    {t:'حفظ الوقت والثغور واستثماره فيما ينفع في الدارين', q:'قال تعالى: «وَالْعَصْرِ ۝ إِنَّ الْإِنْسَانَ لَفِي خُسْرٍ» [العصر: 1-2]', d: 'استحضر بقلبك قيمة الوقت.'},
-    {t:'شكر نعمة القدرة والفرصة والعافية المبذولة', q:'قال تعالى: «لَئِن شَكَرْتُمْ لَأَزِيدَنَّكُمْ» [إبراهيم: 7]', d: 'استحضر بقلبك شكر المنعم.'},
-    {t:'كف الأذى وحفظ حقوق الخلق وسلامة الصدر', q:'قال النبي ﷺ: «المسلم من سلم المسلمون من لسانه ويده» [صحيح البخاري]', d: 'استحضر بقلبك صفاء القلب ونفع الناس.'},
-    {t:'الاستعانة بالله وتفويض الأمر إليه في التوفيق والإنجاز', q:'قال تعالى: «وَعَلَى اللَّهِ فَلْيَتَوَكَّلِ الْمُؤْمِنُونَ» [آل عمران: 122]', d: 'استحضر بقلبك الاعتماد على الله وحده.'}
-  ];
-  
-  const topicInput = document.getElementById('topic');
-  const generateBtn = document.getElementById('generate');
-  const resultSection = document.getElementById('result');
-  const shareBtn = document.getElementById('shareBtn');
-
-  function render() {
-    const value = topicInput.value.trim();
-    if (!value) {
-      topicInput.focus();
-      return;
-    }
-    
-    let data = { ruling: 'مباح في أصله، إذا صحت النية ووافق الشرع صار عبادة.', intents: defaultExpertIntents };
-    for (let keyword in expertDatabase) {
-      if (value.includes(keyword) || keyword.includes(value)) {
-        data = expertDatabase[keyword];
-        break;
-      }
-    }
-    
-    document.getElementById('posterTitle').textContent = `خلاصة نيات ${value}`;
-    document.getElementById('posterList').innerHTML = data.intents.map(x => `<li>نية ${x.t}</li>`).join('');
-    document.getElementById('rulingText').textContent = data.ruling;
-    
-    document.getElementById('intentList').innerHTML = data.intents.map((x, i) => `
-      <article class="intent">
-        <h4>${['١','٢','٣','٤','٥','٦','٧','٨','٩','١٠'][i] || (i+1)}. نية ${x.t}</h4>
-        <p>${x.q}</p>
-        <div class="intent-details">
-          <b>لماذا هذه النية مناسبة؟</b> ${x.d}<br>
-          <b>استحضار 10 ثوانٍ:</b> اذكر بقلبك عظمة الله واحتساب هذا العمل خالصة لوجهه الكريم.<br>
-          <b>أثناء العمل:</b> حافظ على استحضار النية وتجنب الرياء أو التسويف.<br>
-          <b>بعد الانتهاء:</b> احمد الله على التوفيق واستغفره عن أي تقصير.
-        </div>
-      </article>
-    `).join('');
-    
-    resultSection.classList.add('show');
-    resultSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-
-  generateBtn.addEventListener('click', render);
-  
-  topicInput.addEventListener('keydown', e => {
-    if (e.key === 'Enter') {
-      render();
-    }
-  });
-
-  document.querySelectorAll('.chip').forEach(c => {
-    c.addEventListener('click', () => {
-      topicInput.value = c.textContent.trim();
-      render();
-    });
-  });
-
-  shareBtn.addEventListener('click', () => {
-    if (navigator.share) {
-      navigator.share({
-        title: 'نيات | لأن تحيا بنيّة',
-        text: 'استخرج النيات الصالحة لأعمالك اليومية في ضوء القرآن والسنة:',
-        url: window.location.href,
-      }).catch(() => {});
-    } else {
-      navigator.clipboard.writeText(window.location.href).then(() => {
-        alert('تم نسخ رابط منصة نيات بنجاح! شاركه الآن مع أحبابك 🤍');
-      });
-    }
-  });
-</script>
-</body>
-</html>
+</answer_structure>
+</prompt>
