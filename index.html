@@ -227,7 +227,7 @@
                     <p class="text-stone-600 text-sm leading-relaxed mb-6">لأن كل مساهمة تساعد في إنجاح هذا المشروع الذي يصل الخير إلى عدد ممكن من الناس بإذن الله.</p>
                 </div>
 
-                <button class="w-full btn-primary text-white font-bold py-3.5 rounded-2xl shadow-md flex items-center justify-center gap-2 text-sm">
+                <button onclick="shareProject()" class="w-full btn-primary text-white font-bold py-3.5 rounded-2xl shadow-md flex items-center justify-center gap-2 text-sm cursor-pointer">
                     <span>❤️ ساهم في نشر نيات</span>
                 </button>
             </div>
@@ -262,6 +262,22 @@
         function setTopic(val) {
             document.getElementById('topicInput').value = val;
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function shareProject() {
+            const shareData = {
+                title: 'سلسلة النيات مع بدري',
+                text: 'أن تحيا بنيّة.. حول عاداتك اليومية إلى عبادات واستخرج النيات الصالحة في ضوء القرآن والسنة:',
+                url: window.location.href
+            };
+
+            if (navigator.share) {
+                navigator.share(shareData).catch(() => {});
+            } else {
+                // بديل في حال المتصفح لا يدعم المشاركة المباشرة (نسخ الرابط مع رسالة واتساب)
+                const whatsappText = encodeURIComponent(`${shareData.text} \n${shareData.url}`);
+                window.open(`https://wa.me/?text=${whatsappText}`, '_blank');
+            }
         }
 
         async function generateNiyyat() {
