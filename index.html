@@ -3,72 +3,257 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تطبيق Gemini الذكي</title>
+    <title>نيات | سلسلة النيات مع بدري</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Tajawal', sans-serif; background-color: #f7f6f2; height: 100vh; overflow: hidden; }
+        .hero-verse { font-family: 'Tajawal', serif; }
+        .card-box { background: #faf9f5; border: 1px solid #ebe8de; border-radius: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.01); }
+        .btn-primary { background-color: #0b2920; transition: all 0.2s; }
+        .btn-primary:hover { background-color: #133e32; }
+        .brand-slogan { color: #85581A; font-weight: 700; letter-spacing: 0.5px; }
+    </style>
 </head>
-<body class="bg-gray-100 min-h-screen flex flex-col items-center justify-center p-4">
-    <div class="bg-white p-6 rounded-2xl shadow-xl w-full max-w-xl">
-        <h1 class="text-2xl font-bold text-center mb-4 text-gray-800">مساعد Gemini الذكي</h1>
-        
-        <div class="mb-4">
-            <textarea id="userInput" rows="4" class="w-full p-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="اكتب سؤالك أو طلبك هنا..."></textarea>
+<body class="text-slate-800 h-screen flex flex-col justify-between overflow-hidden">
+
+    <!-- Header -->
+    <header class="w-full py-2 px-6 md:px-8 flex flex-col items-center border-b border-stone-200/60 bg-[#f7f6f2] z-50 shrink-0">
+        <div class="w-full max-w-7xl flex items-center justify-between mb-0.5">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-full border-2 border-amber-500/80 flex items-center justify-center text-amber-600 font-black text-base shadow-sm bg-amber-50/50">ن</div>
+                <div>
+                    <h1 class="text-base font-black text-slate-900 tracking-tight leading-none">نيات</h1>
+                    <p class="text-[10px] text-stone-500 font-medium">سلسلة النيات مع بدري</p>
+                    <p class="brand-slogan text-[9px]">أن تحيا بنية</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2">
+                <button onclick="shareProject()" class="text-stone-700 hover:text-slate-900 font-medium text-xs px-3 py-1.5 rounded-xl border border-stone-300/80 bg-white shadow-sm transition cursor-pointer">❤️ ساهم في النشر</button>
+                <a href="#start" class="btn-primary text-white text-xs font-bold px-4 py-1.5 rounded-xl shadow-md">ابدأ الآن</a>
+            </div>
         </div>
-        
-        <button onclick="sendToGemini()" id="sendBtn" class="w-full bg-blue-600 text-white py-3 rounded-xl font-bold hover:bg-blue-700 transition">إرسال الطلب</button>
-        
-        <div id="loading" class="hidden text-center my-4 text-blue-600 font-semibold">جاري المعالجة...</div>
-        
-        <div id="resultArea" class="mt-6 p-4 bg-gray-50 rounded-xl border hidden text-gray-700 whitespace-pre-wrap"></div>
-    </div>
+        <div class="text-center">
+            <h2 class="hero-verse text-xs md:text-sm font-bold text-amber-900/95 tracking-wide">
+                قُلْ إِنَّ صَلَاتِي وَنُسُكِي وَمَحْيَايَ وَمَمَاتِي لِلَّهِ رَبِّ الْعَالَمِينَ (162) <span class="text-stone-500 font-normal text-xs">الأنعام</span>
+            </h2>
+        </div>
+    </header>
 
+    <!-- Main Content: Single View Grid (Right: Input Box + Support, Left: Categories + Info) -->
+    <main class="max-w-7xl mx-auto px-4 md:px-6 py-2.5 flex-grow w-full grid grid-cols-1 lg:grid-cols-2 gap-4 items-center overflow-hidden">
+        
+        <!-- Right Box: Gateway + Support -->
+        <div class="card-box p-4 md:p-6 flex flex-col justify-between h-full max-h-[550px]">
+            <div>
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-xs font-bold text-amber-700 bg-amber-100/60 px-3 py-0.5 rounded-full border border-amber-200">بوابة النية</span>
+                </div>
+                <h3 class="text-xl md:text-2xl font-black text-slate-900 mb-3 text-center">ما العمل الذي ستقوم به؟</h3>
+                
+                <div class="space-y-3">
+                    <input type="text" id="topicInput" placeholder="مثال: الذهاب إلى العمل، الدراسة، المذاكرة..." 
+                        class="w-full px-4 py-3 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-emerald-800 text-sm bg-white shadow-inner">
+                    
+                    <button onclick="generateNiyyat()" class="w-full btn-primary text-white font-bold py-3 rounded-xl shadow-md flex items-center justify-center gap-2 text-sm cursor-pointer">
+                        استخرج النية
+                    </button>
+                </div>
+            </div>
+
+            <!-- Try buttons -->
+            <div class="flex flex-wrap items-center justify-center gap-1.5 text-xs my-2">
+                <span class="text-stone-400 font-medium ml-1">جرب:</span>
+                <button onclick="setTopic('الصلاة في المسجد')" class="px-2.5 py-1 rounded-lg bg-white border border-stone-200 hover:bg-stone-100 text-stone-700 font-medium transition">الصلاة في المسجد</button>
+                <button onclick="setTopic('الأكل')" class="px-2.5 py-1 rounded-lg bg-white border border-stone-200 hover:bg-stone-100 text-stone-700 font-medium transition">الأكل</button>
+                <button onclick="setTopic('العمل')" class="px-2.5 py-1 rounded-lg bg-white border border-stone-200 hover:bg-stone-100 text-stone-700 font-medium transition">العمل</button>
+                <button onclick="setTopic('نظافة البيت')" class="px-2.5 py-1 rounded-lg bg-white border border-stone-200 hover:bg-stone-100 text-stone-700 font-medium transition">نظافة البيت</button>
+                <button onclick="setTopic('الجلوس مع الأسرة')" class="px-2.5 py-1 rounded-lg bg-white border border-stone-200 hover:bg-stone-100 text-stone-700 font-medium transition">الجلوس مع الأسرة</button>
+            </div>
+
+            <!-- What is niyyat & Support integrated at bottom of right box -->
+            <div class="border-t border-stone-200/60 pt-3 space-y-2.5">
+                <div class="flex items-center justify-between text-xs">
+                    <div class="flex items-center gap-1.5 text-stone-700 font-bold text-sm">
+                        <span>ℹ️</span>
+                        <span>ما هو نيات؟</span>
+                    </div>
+                    <span class="text-xs text-stone-600">مشروع لاستحضار النية في تفاصيل حياتك اليومية</span>
+                </div>
+                
+                <div class="btn-primary text-white rounded-xl p-3 text-center shadow-md flex items-center justify-between">
+                    <span class="text-xs font-bold">🌱 لماذا بدأنا نيات؟</span>
+                    <span class="text-xs text-emerald-100">"لأننا كثيرا ما نهتم بالعمل... وننسى النية"</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Left Box: Categories & Support -->
+        <div class="card-box p-4 md:p-6 flex flex-col justify-between h-full max-h-[550px]">
+            <!-- Hadith Banner inside left box -->
+            <div class="text-center pb-2 mb-2 border-b border-stone-200/60">
+                <h3 class="hero-verse text-sm md:text-base font-bold text-amber-900/90 tracking-wide mb-0.5">
+                    «إِنَّمَا الأَعْمَالُ بِالنِّيَّاتِ، وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى»
+                </h3>
+                <p class="text-[11px] text-stone-500 font-medium">متفق عليه</p>
+            </div>
+
+            <h4 class="text-center font-bold text-slate-800 text-xs md:text-sm mb-3">أن كثيرا من الأعمال اليومية يمكن أن يؤجر عليها المسلم إذا صحت النية</h4>
+            
+            <div class="grid grid-cols-4 gap-2 mb-3">
+                <div class="flex flex-col items-center p-2.5 rounded-xl border border-stone-200/80 hover:border-emerald-300 transition bg-white shadow-sm group cursor-pointer" onclick="setTopic('طلب العلم')">
+                    <div class="w-9 h-9 rounded-full bg-emerald-50 text-emerald-800 flex items-center justify-center mb-1 group-hover:bg-emerald-800 group-hover:text-white transition text-sm">📚</div>
+                    <span class="text-xs font-bold text-stone-700 text-center">طلب العلم</span>
+                </div>
+                <div class="flex flex-col items-center p-2.5 rounded-xl border border-stone-200/80 hover:border-emerald-300 transition bg-white shadow-sm group cursor-pointer" onclick="setTopic('بر الوالدين')">
+                    <div class="w-9 h-9 rounded-full bg-emerald-50 text-emerald-800 flex items-center justify-center mb-1 group-hover:bg-emerald-800 group-hover:text-white transition text-sm">👥</div>
+                    <span class="text-xs font-bold text-stone-700 text-center">بر الوالدين</span>
+                </div>
+                <div class="flex flex-col items-center p-2.5 rounded-xl border border-stone-200/80 hover:border-emerald-300 transition bg-white shadow-sm group cursor-pointer" onclick="setTopic('طاعة الزوج')">
+                    <div class="w-9 h-9 rounded-full bg-emerald-50 text-emerald-800 flex items-center justify-center mb-1 group-hover:bg-emerald-800 group-hover:text-white transition text-sm">❤️</div>
+                    <span class="text-xs font-bold text-stone-700 text-center">طاعة الزوج</span>
+                </div>
+                <div class="flex flex-col items-center p-2.5 rounded-xl border border-stone-200/80 hover:border-emerald-300 transition bg-white shadow-sm group cursor-pointer" onclick="setTopic('قيام الليل')">
+                    <div class="w-9 h-9 rounded-full bg-emerald-50 text-emerald-800 flex items-center justify-center mb-1 group-hover:bg-emerald-800 group-hover:text-white transition text-sm">🌙</div>
+                    <span class="text-xs font-bold text-stone-700 text-center">قيام الليل</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-5 gap-2 pt-2 border-t border-stone-200/60 text-center mb-3">
+                <div class="flex flex-col items-center cursor-pointer group" onclick="setTopic('الذهاب إلى العمل')">
+                    <div class="w-7 h-7 rounded-full border border-stone-200 bg-white flex items-center justify-center text-xs mb-0.5 group-hover:bg-emerald-50">🏢</div>
+                    <span class="text-[11px] text-stone-600 font-medium">الذهاب العمل</span>
+                </div>
+                <div class="flex flex-col items-center cursor-pointer group" onclick="setTopic('الصلاة في المسجد')">
+                    <div class="w-7 h-7 rounded-full border border-stone-200 bg-white flex items-center justify-center text-xs mb-0.5 group-hover:bg-emerald-50">🕌</div>
+                    <span class="text-[11px] text-stone-600 font-medium">الصلاة المسجد</span>
+                </div>
+                <div class="flex flex-col items-center cursor-pointer group" onclick="setTopic('المذاكرة')">
+                    <div class="w-7 h-7 rounded-full border border-stone-200 bg-white flex items-center justify-center text-xs mb-0.5 group-hover:bg-emerald-50">📖</div>
+                    <span class="text-[11px] text-stone-600 font-medium">المذاكرة</span>
+                </div>
+                <div class="flex flex-col items-center cursor-pointer group" onclick="setTopic('تناول الطعام')">
+                    <div class="w-7 h-7 rounded-full border border-stone-200 bg-white flex items-center justify-center text-xs mb-0.5 group-hover:bg-emerald-50">🍽️</div>
+                    <span class="text-[11px] text-stone-600 font-medium">تناول الطعام</span>
+                </div>
+                <div class="flex flex-col items-center cursor-pointer group" onclick="setTopic('الجلوس مع الأسرة')">
+                    <div class="w-7 h-7 rounded-full border border-stone-200 bg-white flex items-center justify-center text-xs mb-0.5 group-hover:bg-emerald-50">👨‍👩‍👧‍👦</div>
+                    <span class="text-[11px] text-stone-600 font-medium">جلسة الأسرة</span>
+                </div>
+            </div>
+            <div class="text-center text-xs text-stone-400 font-medium mb-3">ومئات الأعمال الأخرى</div>
+
+            <!-- Support section integrated at bottom of left box -->
+            <div class="border-t border-stone-200/60 pt-3">
+                <div class="flex items-center gap-1.5 text-rose-600 font-bold text-sm mb-1">
+                    <span>❤️</span>
+                    <span>لماذا تحتاج الدعم؟</span>
+                </div>
+                <p class="text-stone-600 text-xs leading-relaxed mb-3">لأن كل مساهمة تساعد في إنجاح هذا المشروع الذي يصل الخير إلى عدد ممكن من الناس بإذن الله.</p>
+                
+                <button onclick="shareProject()" class="w-full btn-primary text-white font-bold py-3 rounded-xl shadow-md flex items-center justify-center gap-2 text-sm cursor-pointer">
+                    <span>❤️ ساهم في نشر نيات</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Result Container (Appears when generating) -->
+        <div id="resultContainer" class="hidden absolute inset-4 md:inset-12 z-50 card-box p-6 md:p-8 border-2 border-emerald-800 bg-white overflow-y-auto shadow-2xl">
+            <div class="flex justify-between items-center mb-4 border-b pb-2">
+                <h3 class="font-bold text-base md:text-lg text-emerald-900">نتائج استخراج النيات</h3>
+                <button onclick="closeResult()" class="text-red-600 font-bold px-3 py-1 bg-red-50 rounded-lg text-xs md:text-sm cursor-pointer">إغلاق ✕</button>
+            </div>
+            <div id="loadingDiv" class="text-center py-10 hidden">
+                <div class="inline-block animate-spin rounded-full h-8 w-8 border-4 border-emerald-800 border-t-transparent mb-2"></div>
+                <p class="text-xs md:text-sm font-bold text-emerald-900">⏳ جاري استخراج النيات بعمق ودقة شرعية...</p>
+            </div>
+            <div id="outputContent" class="text-slate-700 text-sm md:text-base leading-relaxed space-y-4"></div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full py-2 px-6 border-t border-stone-200/60 bg-[#f7f6f2] shrink-0 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-stone-500">
+        <div>جميع الحقوق محفوظة © سلسلة النيات مع بدري</div>
+        <div class="flex items-center gap-4 text-stone-700 text-sm">
+            <a href="#" class="hover:text-emerald-800 transition">▶</a>
+            <a href="#" class="hover:text-emerald-800 transition">📸</a>
+            <a href="#" class="hover:text-emerald-800 transition">✈️</a>
+            <a href="#" class="hover:text-emerald-800 transition">💬</a>
+        </div>
+        <div>العبد الفقير / أحمد مصطفى بدري</div>
+    </footer>
+
+    <!-- Script -->
     <script>
-        async function sendToGemini() {
-            const promptText = document.getElementById('userInput').value.trim();
-            const resultArea = document.getElementById('resultArea');
-            const loading = document.getElementById('loading');
-            const sendBtn = document.getElementById('sendBtn');
+        function setTopic(val) {
+            document.getElementById('topicInput').value = val;
+            generateNiyyat();
+        }
 
-            if (!promptText) {
-                alert('الرجاء كتابة نص أولاً');
-                return;
+        function closeResult() {
+            document.getElementById('resultContainer').classList.add('hidden');
+        }
+
+        function shareProject() {
+            const shareData = {
+                title: 'سلسلة النيات مع بدري',
+                text: 'أن تحيا بنيّة.. حول عاداتك اليومية إلى عبادات واستخرج النيات الصالحة في ضوء القرآن والسنة:',
+                url: window.location.href
+            };
+
+            if (navigator.share) {
+                navigator.share(shareData).catch(() => {});
+            } else {
+                const whatsappText = encodeURIComponent(`${shareData.text} \n${shareData.url}`);
+                window.open(`https://wa.me/?text=${whatsappText}`, '_blank');
+            }
+        }
+
+        async function generateNiyyat() {
+            const topic = document.getElementById('topicInput').value.trim();
+            const resultContainer = document.getElementById('resultContainer');
+            const loadingDiv = document.getElementById('loadingDiv');
+            const outputContent = document.getElementById('outputContent');
+
+            if (!topic) { 
+                alert('الرجاء إدخال اسم العمل أو الموضوع أولاً.'); 
+                return; 
             }
 
-            loading.classList.remove('hidden');
-            resultArea.classList.add('hidden');
-            sendBtn.disabled = true;
+            resultContainer.classList.remove('hidden');
+            loadingDiv.classList.remove('hidden');
+            outputContent.innerHTML = '';
 
-            const apiKey = "AQ.Ab8RN6Kvoao748kSZpZNaYx-Do-WVuRsRDcMZ6V5fKVD6fnfLg";
-            const url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent";
+            const systemPrompt = `نظام معرفي دعوي–تربوي يحوّل الأعمال والأحوال إلى عبادة بالنية الصحيحة المنضبطة بالنص. الاسم: سلسلة النيات مع بدري – أن تحيا بنيّة. قواعد صارمة للإخراج: أخرج بالترتيب: خلاصة النيات بصيغة بطاقة أو قائمة + مقدمة ثابتة + حكم العمل + 7 إلى 12 نية بنص ومرجع من القرآن أو السنة الصحيحة + التطبيق العملي + الأسئلة الختامية + الخاتمة الثابتة. ممنوع الحديث الضعيف. اذكر السورة ورقم الآية ورقم الحديث. ممنوع استخدام: نويت / قل في قلبك. المعتمد: استحضر بقلبك نية.`;
+
+            const apiKey = "AIzaSyAWwEgw6wiuWUR2xlxS35t2cp_Iiv0aI30";
 
             try {
-                const response = await fetch(url, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "x-goog-api-key": apiKey
-                    },
-                    body: JSON.stringify({
-                        contents: [{
-                            parts: [{ text: promptText }]
-                        }]
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        contents: [{ 
+                            parts: [{ text: `${systemPrompt}\n\nالمطلوب استخراج النيات لهذا العمل بالتفصيل الكامل: ${topic}` }] 
+                        }] 
                     })
                 });
-
-                const data = await response.json();
                 
-                if (!response.ok) {
-                    throw new Error(data.error?.message || "خطأ في الاتصال بالسيرفر");
+                const data = await response.json();
+                loadingDiv.classList.add('hidden');
+                
+                if (data.candidates && data.candidates[0]) {
+                    const text = data.candidates[0].content.parts[0].text;
+                    outputContent.innerHTML = `<div class="bg-[#f7f6f2] p-5 rounded-xl border border-stone-200 text-sm md:text-base leading-relaxed">${text.replace(/\n/g, '<br>')}</div>`;
+                } else if (data.error) {
+                    outputContent.innerHTML = `<div class="p-3 bg-red-50 text-red-700 rounded-lg text-sm">خطأ تقني: ${data.error.message}</div>`;
+                } else {
+                    outputContent.innerHTML = `<div class="p-3 bg-red-50 text-red-700 rounded-lg text-sm">تعذر جلب النتيجة من الخادم.</div>`;
                 }
-
-                const output = data.candidates[0].content.parts[0].text;
-                resultArea.textContent = output;
-                resultArea.classList.remove('hidden');
-            } catch (error) {
-                console.error("خطأ:", error);
-                alert("خطأ تقني: " + error.message);
-            } finally {
-                loading.classList.add('hidden');
-                sendBtn.disabled = false;
+            } catch (err) {
+                loadingDiv.classList.add('hidden');
+                outputContent.innerHTML = `<div class="p-3 bg-red-50 text-red-700 rounded-lg text-sm">حدث خطأ في الاتصال بالشبكة.</div>`;
             }
         }
     </script>
